@@ -1,4 +1,4 @@
-package DFS_BFS.Algorithms.DFS;
+package Algorithms.DFS;
 
 import java.util.Scanner;
 

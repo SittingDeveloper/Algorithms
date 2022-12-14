@@ -1,4 +1,4 @@
-package DFS_BFS.Practice;
+package Practice;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -1,4 +1,4 @@
-package DFS_BFS.BaekJoon;
+package BaekJoon;
 
 import java.util.LinkedList;
 import java.util.Queue;
