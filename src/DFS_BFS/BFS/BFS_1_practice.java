@@ -21,7 +21,7 @@ public class BFS_1_practice {
         while (!myQueue.isEmpty()) {
 
             int curr = myQueue.remove();
-            System.out.print(curr + "  ");
+            System.out.print(curr + " ");
 
             for (int next = 0; next < N; next++) {
 
