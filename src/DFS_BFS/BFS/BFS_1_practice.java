@@ -22,6 +22,7 @@ public class BFS_1_practice {
 
             int curr = myQueue.remove();
             System.out.print(curr + "  ");
+            // Update Test
 
             for (int next = 0; next < N; next++) {
 
