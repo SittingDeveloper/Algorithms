@@ -1,9 +1,10 @@
-package Practice;
+package Algorithms.TwoPointer;
 
 import java.util.Scanner;
 
-public class Main {
+public class SumOfNumbers {
 
+    // 2018
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
