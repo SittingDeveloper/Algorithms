@@ -1,12 +1,12 @@
-package Practice;
+package Algorithms.SumOfPart;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Main {
+// 11660
+public class SumOfPart_5 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -38,10 +38,10 @@ public class Main {
         // 2차원 구간합 공식 : D[x2][y2] - D[x1-1][y2] - D[x2][y1-1] + D[x1-1][y1-1]
         for (int i = 0; i < M; i++) {
             stringTokenizer = new StringTokenizer(bufferedReader.readLine());
-            int x1 = Integer.parseInt(stringTokenizer.nextToken()); // 2
-            int y1 = Integer.parseInt(stringTokenizer.nextToken()); // 2
-            int x2 = Integer.parseInt(stringTokenizer.nextToken()); // 3
-            int y2 = Integer.parseInt(stringTokenizer.nextToken()); // 4
+            int x1 = Integer.parseInt(stringTokenizer.nextToken());
+            int y1 = Integer.parseInt(stringTokenizer.nextToken());
+            int x2 = Integer.parseInt(stringTokenizer.nextToken());
+            int y2 = Integer.parseInt(stringTokenizer.nextToken());
 
             int result = D[x2][y2] - D[x1 - 1][y2] - D[x2][y1 - 1] + D[x1 - 1][y1 - 1];
             System.out.println(result);
