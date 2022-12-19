@@ -1,21 +1,20 @@
-package Practice;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Main {
+public class Code_1940 {
 
     // 1940
     public static void main(String[] args) throws IOException {
 
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
-        int N = Integer.parseInt(bf.readLine()); // 재료의 개수
-        int M = Integer.parseInt(bf.readLine()); // 갑옷이 완성되는 번호의 합
+        int N = Integer.parseInt(bf.readLine());
+        int M = Integer.parseInt(bf.readLine());
 
         StringTokenizer st = new StringTokenizer(bf.readLine());
 
@@ -25,10 +24,10 @@ public class Main {
             A[i] = Integer.parseInt(st.nextToken());
         }
 
-        Arrays.sort(A); // 오름차순 정렬
+        Arrays.sort(A);
 
-        int i = 0; // i :  시작점
-        int j = A.length - 1; // j : 마지막점
+        int i = 0;
+        int j = A.length - 1; //
         int count = 0;
 
         while (i < j) {
@@ -45,4 +44,5 @@ public class Main {
 
         System.out.println(count);
     }
+
 }
