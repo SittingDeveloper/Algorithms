@@ -1,11 +1,11 @@
-package Practice;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main {
+public class Code_12891 {
 
     static int checkArr[];
     static int curArr[];
@@ -30,7 +30,7 @@ public class Main {
         // 입력받은 문자열을 저장할 char 배열 A
         char A[] = new char[S];
 
-         /* 체크해야할 글자의 개수가 4개('A, C, G, T')이므로 크기는 4 */
+        /* 체크해야할 글자의 개수가 4개('A, C, G, T')이므로 크기는 4 */
         // 비밀번호 체크 배열
         checkArr = new int[4];
 
@@ -147,4 +147,5 @@ public class Main {
 
         }
     }
+
 }
