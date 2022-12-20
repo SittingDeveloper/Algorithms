@@ -1,9 +1,11 @@
-package Practice;
+package Algorithms.Stack;
 
-import java.io.*;
-import java.util.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Stack;
 
-public class Main {
+public class StackSequence {
 
     public static void main(String[] args) throws IOException {
 
