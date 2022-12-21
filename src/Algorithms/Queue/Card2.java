@@ -1,9 +1,10 @@
-package Practice;
+package Algorithms.Queue;
 
 import java.io.*;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class Main {
+public class Card2 {
 
     // 2164
     public static void main(String[] args) throws IOException {

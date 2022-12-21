@@ -1,11 +1,11 @@
-package Practice;
+package BaekJoon;
 
 import java.io.*;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class Main {
+public class Code_2164 {
 
-    // 2164
     public static void main(String[] args) throws IOException {
 
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
@@ -22,10 +22,8 @@ public class Main {
 
         while (queue.size() > 1) {
 
-            // 가장 위 카드를 버림
             queue.poll();
 
-            // 가장 앞 카드를 가장 뒤에 삽입
             queue.add(queue.poll());
 
         }
