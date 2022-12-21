@@ -1,11 +1,15 @@
-package Practice;
+package Algorithms.Queue;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.PriorityQueue;
 
-public class Main {
+public class Hard_AbsoluteValue {
 
-    public static void main(String[] args) throws IOException{
+    // 11286 절댓값 힙, 우선순위 큐
+    public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -48,3 +52,4 @@ public class Main {
 
     }
 }
+
