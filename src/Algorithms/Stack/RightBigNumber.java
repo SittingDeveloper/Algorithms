@@ -1,10 +1,12 @@
-package Practice;
+package Algorithms.Stack;
 
 import java.io.*;
-import java.util.*;
+import java.util.Stack;
+import java.util.StringTokenizer;
 
-public class Main {
+public class RightBigNumber {
 
+    // 17298
     public static void main(String[] args) throws IOException {
 
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
