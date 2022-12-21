@@ -1,4 +1,4 @@
-package Algorithms.SlidingWindow;
+package Algorithms.DataStructure.SlidingWindow;
 
 import java.io.BufferedReader;
 import java.io.IOException;

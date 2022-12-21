@@ -1,4 +1,4 @@
-package Algorithms.TwoPointer;
+package Algorithms.DataStructure.TwoPointer;
 
 import java.io.BufferedReader;
 import java.io.IOException;

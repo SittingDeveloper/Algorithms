@@ -1,4 +1,4 @@
-package Algorithms.SumOfPart;
+package Algorithms.DataStructure.SumOfPart;
 
 import java.util.Scanner;
 

@@ -1,7 +1,5 @@
 package BaekJoon;
 
-import Algorithms.SlidingWindow.FindMinValue;
-
 import java.io.*;
 import java.util.Deque;
 import java.util.LinkedList;

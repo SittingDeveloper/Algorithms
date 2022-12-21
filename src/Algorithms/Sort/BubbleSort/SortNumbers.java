@@ -1,10 +1,10 @@
-package Practice;
+package Algorithms.Sort.BubbleSort;
 
-import java.io.*;
-import java.util.*;
+import java.io.IOException;
+import java.util.Scanner;
 
-public class Main {
-
+public class SortNumbers {
+    // Bubble Sort
     // 2750
     public static void main(String[] args) throws IOException {
 
@@ -31,6 +31,5 @@ public class Main {
             System.out.println(A[i]);
 
         }
-
     }
 }

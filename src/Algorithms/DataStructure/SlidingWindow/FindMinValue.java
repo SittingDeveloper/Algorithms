@@ -1,6 +1,4 @@
-package Algorithms.SlidingWindow;
-
-import Practice.Main;
+package Algorithms.DataStructure.SlidingWindow;
 
 import java.io.*;
 import java.util.Deque;

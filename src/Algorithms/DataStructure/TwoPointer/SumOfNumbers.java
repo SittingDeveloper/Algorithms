@@ -1,4 +1,4 @@
-package Algorithms.TwoPointer;
+package Algorithms.DataStructure.TwoPointer;
 
 import java.util.Scanner;
 

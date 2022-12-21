@@ -1,11 +1,12 @@
-package Practice;
+package BaekJoon;
 
-import java.io.*;
-import java.util.*;
+import java.io.IOException;
+import java.util.Scanner;
 
-public class Main {
+public class Code_2750 {
 
     // 2750
+    // BubbleSort
     public static void main(String[] args) throws IOException {
 
         Scanner scan = new Scanner(System.in);
@@ -33,4 +34,5 @@ public class Main {
         }
 
     }
+
 }
