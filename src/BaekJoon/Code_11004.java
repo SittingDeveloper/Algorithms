@@ -7,6 +7,10 @@ import java.util.StringTokenizer;
 
 public class Code_11004 {
 
+    /*
+    * https://hyunipad.tistory.com/92
+    * */
+
     public static void main(String[] args) throws IOException {
 
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
