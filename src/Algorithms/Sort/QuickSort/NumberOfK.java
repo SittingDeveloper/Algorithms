@@ -39,38 +39,39 @@ public class NumberOfK {
 
     // S, E는 각 커서의 시작점
     static void quickSort(int A[], int S, int E) {
-        int pl = S;
-        int pr = E;
-        int pivot = A[(pl + pr) / 2]; // 피벗은 각 끝의 커서의 중간 값을 선택
+        int leftPoint = S;
+        int rightPoint = E;
+        int pivot = A[(leftPoint + rightPoint) / 2]; // 피벗은 각 끝의 커서의 중간 값을 선택
 
         do {
 
-            // A[pl] 값이 pivot 보다 큰 수 탐색
-            while (A[pl] < pivot) {
-                pl++;
+            // A[leftPoint] 값이 pivot 보다 작다면 다음 인덱스 탐색 leftPoint ++
+            while (A[leftPoint] < pivot) {
+                leftPoint++;
             }
 
-            // A[pr] 값이 pivot 보다 작은 수 탐색
-            while (A[pr] > pivot) {
-                pr--;
+            // A[rightPoint] 값이 pivot 보다 크다면 다음 인덱스 탐색 rightPoint --
+            while (A[rightPoint] > pivot) {
+                rightPoint--;
             }
 
-            // pl <= pr : swap
-            if (pl <= pr) {
-                swap(A, pl++, pr--);
+            // leftPoint <= rightPoint : swap
+            if (leftPoint <= rightPoint) {
+                swap(A, leftPoint++, rightPoint--);
             }
-        } while (pl <= pr);
+
+        } while (leftPoint <= rightPoint);
 
         /* 정렬 끝난 후 나누어진 두개의 그룹에 데이터 수를 체크 */
 
-        // S 가 pr 보다 작으면 그룹의 수가 1개 이상이기 때문에 다시 정렬
-        if (S < pr) {
-            quickSort(A, S, pr);
+        // S 가 rightPoint 보다 작으면 그룹의 수가 1개 이상이기 때문에 다시 정렬
+        if (S < rightPoint) {
+            quickSort(A, S, rightPoint);
         }
 
-        // pl이 E 보다 작으면 그룹의 수가 1개 이상이기 때문에 다시 정렬
-        if (pl < E) {
-            quickSort(A, pl, E);
+        // leftPoint E 보다 작으면 그룹의 수가 1개 이상이기 때문에 다시 정렬
+        if (leftPoint < E) {
+            quickSort(A, leftPoint, E);
         }
 
     }

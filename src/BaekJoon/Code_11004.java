@@ -36,31 +36,32 @@ public class Code_11004 {
     }
 
     static void quickSort(int A[], int S, int E) {
-        int pl = S;
-        int pr = E;
-        int pivot = A[(pl + pr) / 2];
+        int leftPoint = S;
+        int rightPoint = E;
+        int pivot = A[(leftPoint + rightPoint) / 2]; // 피벗은 각 끝의 커서의 중간 값을 선택
 
         do {
 
-            while (A[pl] < pivot) {
-                pl++;
+            while (A[leftPoint] < pivot) {
+                leftPoint++;
             }
 
-            while (A[pr] > pivot) {
-                pr--;
+            while (A[rightPoint] > pivot) {
+                rightPoint--;
             }
 
-            if (pl <= pr) {
-                swap(A, pl++, pr--);
+            if (leftPoint <= rightPoint) {
+                swap(A, leftPoint++, rightPoint--);
             }
-        } while (pl <= pr);
 
-        if (S < pr) {
-            quickSort(A, S, pr);
+        } while (leftPoint <= rightPoint);
+
+        if (S < rightPoint) {
+            quickSort(A, S, rightPoint);
         }
 
-        if (pl < E) {
-            quickSort(A, pl, E);
+        if (leftPoint < E) {
+            quickSort(A, leftPoint, E);
         }
 
     }
