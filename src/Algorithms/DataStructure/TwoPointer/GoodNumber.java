@@ -40,7 +40,7 @@ public class GoodNumber {
             while (i < j) {
 
                 if (A[i] + A[j] == find) {
-                    // i, j가 k가 아닐 떄 결괏에 반영 및 while 종료
+                    // i, j가 k가 아닐 때 결괏값에 반영 및 while 종료
                     if (i != k && j != k) { // find 는 서로 다른 두 수의 합이어야 함
                         Good_Number++;
                         break;
