@@ -1,4 +1,4 @@
-package Algorithms.DataStructure.BFS;
+package Algorithms.Search.BFS;
 
 import java.util.LinkedList;
 import java.util.Queue;

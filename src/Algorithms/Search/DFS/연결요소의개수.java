@@ -1,11 +1,11 @@
-package Practice;
+package Algorithms.Search.DFS;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main {
+public class 연결요소의개수 {
 
     static int MAX_N = 10000;
     static int N, M;
@@ -14,7 +14,7 @@ public class Main {
 
     static int count = 0;
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());

@@ -1,4 +1,4 @@
-package Algorithms.DataStructure.DFS;
+package Algorithms.Search.DFS;
 
 import java.util.Scanner;
 

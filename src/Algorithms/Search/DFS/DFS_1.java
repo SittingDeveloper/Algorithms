@@ -1,10 +1,14 @@
-package Algorithms.DataStructure.DFS;
+package Algorithms.Search.DFS;
 
 import java.util.Scanner;
 
+/*
+5 6
+0 1 0 2 1 3 1 4 2 4 3 4
+* */
 public class DFS_1 {
 
-    static final int MAX_N = 10;
+    static final int MAX_N = 1000;
     static int N, E; // N = 노드의 수 , E = 간선의 수
     static int[][] Graph = new int[MAX_N][MAX_N];
 
