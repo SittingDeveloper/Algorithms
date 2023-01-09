@@ -1,4 +1,4 @@
-package Practice;
+package Algorithms.Search.BFS;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,8 +7,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-// https://wiselog.tistory.com/163
-public class Main {
+
+// 2178
+public class 미로탐색 {
 
     static int dx[] = {-1, 1, 0, 0}; // 방향배열 - 상하
     static int dy[] = {0, 0, -1, 1}; // 방향배열 - 좌우

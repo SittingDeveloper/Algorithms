@@ -36,17 +36,19 @@ public class 연결요소의개수 {
         for (int i = 1; i <= N; i++) {
             if (Visited[i] == false) {
                 dfs(i);
+                System.out.println("");
                 count++;
             }
         }
 
-        System.out.println(count);
+        System.out.println("\n" + count);
 
     }
 
     public static void dfs(int node) {
 
         Visited[node] = true;
+        System.out.print(node + " ");
 
         for (int next = 1; next <= N; next++) {
 
