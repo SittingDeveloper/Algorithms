@@ -1,11 +1,12 @@
-package Practice;
+package Algorithms.Search.BinarySearch;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main {
+// 1920
+public class 수찾기 {
 
     static int A[];
     static int tmp[];
