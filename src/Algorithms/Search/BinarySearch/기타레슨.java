@@ -1,11 +1,11 @@
-package Practice;
+package Algorithms.Search.BinarySearch;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main {
+public class 기타레슨 {
 
     // 2343
     public static void main(String[] args) throws IOException {
