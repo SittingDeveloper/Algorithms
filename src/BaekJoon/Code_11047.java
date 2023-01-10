@@ -1,12 +1,11 @@
-package Practice;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-// 11047
-public class Main {
+public class Code_11047 {
 
     /* Greedy Algorithm : 탐욕 알고리즘 (그리디)
     1. 해 선택     : 현재 상태에서 가장 최선이라고 생각되는 해를 선택한다
