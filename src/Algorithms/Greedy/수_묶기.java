@@ -1,11 +1,12 @@
-package Practice;
+package Algorithms.Greedy;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.Collections;
+import java.util.PriorityQueue;
 
-public class Main {
+public class 수_묶기 {
 
     // 1744
     public static void main(String[] args) throws IOException {
@@ -64,4 +65,5 @@ public class Main {
         System.out.println(sum + one);
 
     }
+
 }
