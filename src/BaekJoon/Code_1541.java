@@ -1,11 +1,11 @@
-package Practice;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.StringTokenizer;
 
-public class Main {
+public class Code_1541 {
 
     static int answer = 0;
 
@@ -16,10 +16,8 @@ public class Main {
         String s = br.readLine();
         StringTokenizer st = new StringTokenizer(s, "-");
 
-        // 가장 앞에 있는 값만 더한다
         answer += mySum(st.nextToken());
 
-        // 뒷부분은 더한 값을 뺌
         while (st.hasMoreTokens()) {
             answer -= mySum(st.nextToken());
         }
@@ -27,7 +25,6 @@ public class Main {
         System.out.println(answer);
     }
 
-    // 나뉜 그룹의 더하기 연산 수행 함수
     static int mySum(String s) {
 
         int sum = 0;
@@ -40,5 +37,6 @@ public class Main {
 
         return sum;
     }
+
 
 }
