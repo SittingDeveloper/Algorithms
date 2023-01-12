@@ -34,6 +34,10 @@ public class 소수구하기 {
         */
         for (int i = 2; i <= Math.sqrt(N); i++) { // 제곱근까지만 수행하기
 
+            if (A[i] == 0) {
+                continue;
+            }
+
             // 배수 지우기
             for (int j = i + i; j <= N; j = j + i) {
                 A[j] = 0;

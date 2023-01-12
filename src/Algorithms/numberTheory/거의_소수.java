@@ -1,11 +1,12 @@
-package Practice;
+package Algorithms.numberTheory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.StringTokenizer;
 
-public class Main {
+// 1456
+public class 거의_소수 {
 
     public static void main(String[] args) throws IOException {
 
@@ -56,4 +57,5 @@ public class Main {
         }
         System.out.println(count);
     }
+
 }
