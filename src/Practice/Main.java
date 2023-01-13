@@ -10,12 +10,10 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        long min = Long.parseLong(st.nextToken());
-        long max = Long.parseLong(st.nextToken());
+        int N = Integer.parseInt(br.readLine());
 
-        long A[] = new long[10000001];
+        int A[] = new int[10000001];
 
         for (int i = 2; i < A.length; i++) {
             A[i] = i;
@@ -23,7 +21,6 @@ public class Main {
 
         for (int i = 2; i <= Math.sqrt(A.length); i++) {
 
-            // 소수가 아니면 넘어감
             if (A[i] == 0) {
                 continue;
             }
@@ -31,29 +28,33 @@ public class Main {
             for (int j = i + i; j < A.length; j = i + j) {
                 A[j] = 0;
             }
+
         }
 
-        int count = 0;
-        for (int i = 2; i < 10000001; i++) {
-            if (A[i] != 0) {
+        int minResult = 0;
+        int reverseNumber = 0;
+        StringBuilder sb = new StringBuilder();
 
-                // 현재 소수
-                long curr = A[i];
+        for (int i = N; i < A.length; i++) {
 
-                //곱셈이 long의 범위를 넘어갈 수 있어 이항 정리로 처리
-                // A[i] <= max / curr
-                while ((double) A[i] <= (double) max / (double) curr) {
+            // 소수일 때
+            if (A[i] != 0 ) {
 
-                    // A[i] >= min / curr
-                    if ((double)A[i] >= (double) min / (double) curr) {
-                        count++;
-                    }
+                sb.append(A[i]);
+                reverseNumber = Integer.parseInt(sb.reverse().toString());
+                sb.setLength(0);
 
-                    curr *= A[i];
-
+                if (A[i] == reverseNumber) {
+                    minResult = reverseNumber;
+                    break;
                 }
+
             }
+
         }
-        System.out.println(count);
+
+        System.out.println(minResult);
+
     }
+
 }
