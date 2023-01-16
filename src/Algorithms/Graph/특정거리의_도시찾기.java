@@ -59,10 +59,9 @@ public class 특정거리의_도시찾기 {
 
         // 방문거리가 K인 노드의 숫자를 정답 배열에 더하기
         for (int i = 0; i <= N; i++) {
-            /*if (Visited[i] == K) {
+            if (Visited[i] == K) {
                 answer.add(i);
-            }*/
-            System.out.println(Visited[i]);
+            }
         }
 
         // 정답배열 오름차순 정렬해 출력하기

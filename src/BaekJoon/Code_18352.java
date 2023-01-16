@@ -48,10 +48,9 @@ public class Code_18352 {
         bfs(X);
 
         for (int i = 0; i <= N; i++) {
-            /*if (Visited[i] == K) {
+            if (Visited[i] == K) {
                 answer.add(i);
-            }*/
-            System.out.println(Visited[i]);
+            }
         }
 
         if (answer.isEmpty()) {
