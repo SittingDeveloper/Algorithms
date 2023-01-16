@@ -1,11 +1,12 @@
-package Practice;
+package Algorithms.Graph;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class Main {
+// 18352
+public class 특정거리의_도시찾기 {
 
     static ArrayList<Integer> Graph[];
     static int Visited[];
