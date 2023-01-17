@@ -78,7 +78,8 @@ public class 특정거리의_도시찾기 {
 
     static void bfs(int node) {
 
-        Visited[node]++;
+        // 최초에 방문하는 도시는 이동하지 않으므로 방문 배열에 0을 저장
+        Visited[node] = 0;
 
         Queue<Integer> q = new LinkedList<>();
         q.add(node);
@@ -89,6 +90,7 @@ public class 특정거리의_도시찾기 {
             for (int next : Graph[curr]) {
 
                 if (Visited[next] == -1) {
+                    // 이후 방문하는 도시는 현재 도시의 방문 배열값 + 1하는 방식으로 이동 거리를 저장
                     Visited[next] = Visited[curr] + 1;
                     q.add(next);
                 }

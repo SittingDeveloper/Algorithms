@@ -1,26 +1,13 @@
-package Practice;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
-
-/*
-
-1
-5 3 6
-0 2
-1 2
-2 2
-3 2
-4 2
-4 0
-
-result = 2
-* */
-
-public class Main {
+public class Code_1012 {
 
     static int Graph[][];
     static boolean Visited[][];
@@ -49,11 +36,8 @@ public class Main {
                 int x = Integer.parseInt(st.nextToken());
                 int y = Integer.parseInt(st.nextToken());
 
-                // 배추 좌표 입력
                 Graph[x][y] = 1;
             }
-            // ==============================================
-            // 입력된 내용 저장
 
             int earthWarm = 0;
 
@@ -78,7 +62,6 @@ public class Main {
 
     static void bfs(int startX, int startY) {
 
-        // 시작 좌표엔 배추가 있음
         Visited[startX][startY] = true;
 
         Queue<int[]> q = new LinkedList<>();
@@ -87,8 +70,6 @@ public class Main {
         // 상하좌우
         int dx[] = {0, 0, -1, 1};
         int dy[] = {-1, 1, 0, 0};
-        // 배추가 상하좌우에 인접하면 이동할 수 있음
-        // 현재 좌표에서 상하좌우 움직이는 좌표를 지정
 
         while (!q.isEmpty()) {
 
@@ -98,12 +79,10 @@ public class Main {
                 int x = curr[0] + dx[i];
                 int y = curr[1] + dy[i];
 
-                // 좌표가 배추밭을 벗어나게되면 다음 좌표를 체크해야한다
                 if (x < 0 || x >= M || y < 0 || y >= N) {
                     continue;
                 }
 
-                // 상하좌우 움직인 좌표에 배추가 있고, 방문하지 않았다면
                 if (Graph[x][y] == 1 && Visited[x][y] == false) {
                     q.add(new int[]{x, y});
                     Visited[x][y] = true;

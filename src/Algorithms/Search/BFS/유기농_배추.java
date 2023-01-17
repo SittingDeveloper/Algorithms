@@ -1,26 +1,14 @@
-package Practice;
+package Algorithms.Search.BFS;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
-
-/*
-
-1
-5 3 6
-0 2
-1 2
-2 2
-3 2
-4 2
-4 0
-
-result = 2
-* */
-
-public class Main {
+// 1012
+public class 유기농_배추 {
 
     static int Graph[][];
     static boolean Visited[][];
