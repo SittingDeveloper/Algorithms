@@ -1,13 +1,15 @@
-package Practice;
-
+package Algorithms.Graph;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
-public class Main {
-
+// 1325
+public class 효율적인_해킹 {
     static ArrayList<Integer> Graph[];
     static boolean Visited[];
     static int N, M;
