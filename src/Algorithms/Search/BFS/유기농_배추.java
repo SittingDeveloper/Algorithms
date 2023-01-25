@@ -7,6 +7,20 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+/*
+
+1
+5 3 6
+0 2
+1 2
+2 2
+3 2
+4 2
+4 0
+
+result = 2
+* */
+
 // 1012
 public class 유기농_배추 {
 
@@ -25,13 +39,23 @@ public class 유기농_배추 {
         for (int testCase = 0; testCase < T; testCase++) {
 
             st = new StringTokenizer(br.readLine());
+
+            // 가로
             M = Integer.parseInt(st.nextToken());
+
+            // 세로
             N = Integer.parseInt(st.nextToken());
+
+            // 배추의 개수
             int K = Integer.parseInt(st.nextToken());
 
+            // 배추밭
             Graph = new int[M][N];
+
+            // 배추밭 방문 여부
             Visited = new boolean[M][N];
 
+            // 배추가 있어야할 위치에 배추 저장
             for (int i = 0; i < K; i++) {
                 st = new StringTokenizer(br.readLine());
                 int x = Integer.parseInt(st.nextToken());
@@ -43,12 +67,14 @@ public class 유기농_배추 {
             // ==============================================
             // 입력된 내용 저장
 
+            // 지렁이의 개수
             int earthWarm = 0;
 
+            // 배추밭 탐색
             for (int i = 0; i < M; i++) {
                 for (int j = 0; j < N; j++) {
 
-                    // 간선이 있고 방문한 적이 없는 지 확인
+                    // 배추가 존재하고 방문한적이 없는 지 확인
                     if (Graph[i][j] == 1 && Visited[i][j] == false) {
                         bfs(i, j);
                         earthWarm++;
@@ -66,10 +92,13 @@ public class 유기농_배추 {
 
     static void bfs(int startX, int startY) {
 
-        // 시작 좌표엔 배추가 있음
+        // 방문한 위치를 true로 변경
         Visited[startX][startY] = true;
 
+        // x, y 좌표를 저장할 Queue 배열 생성
         Queue<int[]> q = new LinkedList<>();
+
+        // x, y 좌표를 q에 Push
         q.add(new int[]{startX, startY});
 
         // 상하좌우
@@ -78,10 +107,13 @@ public class 유기농_배추 {
         // 배추가 상하좌우에 인접하면 이동할 수 있음
         // 현재 좌표에서 상하좌우 움직이는 좌표를 지정
 
+        // 큐가 비어있으면 더이상 인접한 배추가 없다는 뜻
         while (!q.isEmpty()) {
 
+            // 배추의 위치를 꺼냄
             int[] curr = q.poll();
 
+            // 상하좌우 확인
             for (int i = 0; i < 4; i++) {
                 int x = curr[0] + dx[i];
                 int y = curr[1] + dy[i];
@@ -91,7 +123,7 @@ public class 유기농_배추 {
                     continue;
                 }
 
-                // 상하좌우 움직인 좌표에 배추가 있고, 방문하지 않았다면
+                // 상하좌우 좌표에 배추가 있고, 방문하지 않았다면
                 if (Graph[x][y] == 1 && Visited[x][y] == false) {
                     q.add(new int[]{x, y});
                     Visited[x][y] = true;

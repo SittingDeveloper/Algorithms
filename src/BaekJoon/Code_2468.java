@@ -1,13 +1,13 @@
-package Practice;
-
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
-// 2468
-public class Main {
+public class Code_2468 {
 
     static int Graph[][];
     static boolean Visited[][];
@@ -29,16 +29,13 @@ public class Main {
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
 
-            // max : 물의 높이를 100까지 구할 필요 없이 다 잠길 때 까지의 가장 큰 높이인 max 까지만
             for (int j = 0; j < N; j++) {
                 Graph[i][j] = Integer.parseInt(st.nextToken());
                 max = Math.max(Graph[i][j], max);
             }
 
         }
-        // Graph 값 저장 및 max 구하는 부분
 
-        // 물의 높이는 0 부터 시작 ( 비가 안내리는 경우 포함 )
         for (int WaterFloor = 0; WaterFloor < max; WaterFloor++) {
 
             Visited = new boolean[N][N];
@@ -53,7 +50,6 @@ public class Main {
                 }
             }
 
-            // Math.max(n1,n2) n1과 n2를 비교하여 큰 수를 저장
             result = Math.max(maxSafeArea, result);
 
         }
@@ -62,7 +58,6 @@ public class Main {
 
     }
 
-    // 현재 물의 높이도 같이 파라미터로 넘겨줘야함
     static void bfs(int startX, int startY, int WaterFloor) {
 
         Visited[startX][startY] = true;
@@ -91,5 +86,5 @@ public class Main {
         }
 
     }
-    
+
 }

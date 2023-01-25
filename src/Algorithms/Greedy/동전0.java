@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+// 11047
 public class 동전0 {
 
     /* Greedy Algorithm : 탐욕 알고리즘 (그리디)

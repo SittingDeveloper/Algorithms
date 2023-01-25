@@ -1,13 +1,14 @@
-package Practice;
-
+package Algorithms.Search.BFS;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 // 2468
-public class Main {
+public class 안전영역 {
 
     static int Graph[][];
     static boolean Visited[][];
@@ -91,5 +92,5 @@ public class Main {
         }
 
     }
-    
+
 }
