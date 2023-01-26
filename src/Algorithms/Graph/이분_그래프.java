@@ -1,25 +1,15 @@
-package Practice;
-
+package Algorithms.Graph;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
-/*
-2
-3 2
-1 3
-2 3
-4 4
-1 2
-2 3
-3 4
-4 2
-* */
-
-
-public class Main {
+// 1707
+public class 이분_그래프 {
 
     static ArrayList<Integer> Graph[];
     static boolean Visited[];
