@@ -1,11 +1,13 @@
-package Practice;
+package Algorithms.Graph;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
-public class Main {
+// 1043
+public class UNF_거짓말 {
 
     static int unf[];
     static ArrayList<Integer> party[];

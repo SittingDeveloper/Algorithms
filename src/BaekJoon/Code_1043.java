@@ -1,11 +1,12 @@
-package Practice;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
-public class Main {
+public class Code_1043 {
 
     static int unf[];
     static ArrayList<Integer> party[];
@@ -30,18 +31,15 @@ public class Main {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        // N : 사람 수 ,  M : 파티 수
         StringTokenizer st = new StringTokenizer(br.readLine());
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-        // UNF 초기화
         unf = new int[N + 1];
         for (int i = 1; i < unf.length; i++) {
             unf[i] = i;
         }
 
-        // arr_KnowsPeople : 진실을 알고 있는 사람들의 배열
         st = new StringTokenizer(br.readLine());
         int KnowsPeople = Integer.parseInt(st.nextToken());
         int arr_KnowsPeople[] = new int[KnowsPeople];
@@ -51,7 +49,6 @@ public class Main {
 
         party = new ArrayList[M];
 
-        // 파티 데이터 저장
         for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
             party[i] = new ArrayList<>();
@@ -63,7 +60,6 @@ public class Main {
 
         }
 
-        // 각 파티에 참여한 사람들을 1개의 그룹으로 만들기
         for (int i = 0; i < M; i++) {
 
             int firstPeople = party[i].get(0);
@@ -75,7 +71,6 @@ public class Main {
         }
 
         int result = 0;
-        //  [각 파티의 대표 노드]와 [진실을 아는 사람들의 대표 노트]가 같다면 과장할 수 없음
         for (int i = 0; i < M; i++) {
             boolean isPossible = true;
             int cur = party[i].get(0);
