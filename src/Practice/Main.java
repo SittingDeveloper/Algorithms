@@ -6,112 +6,58 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-/*
-2
-3 2
-1 3
-2 3
-4 4
-1 2
-2 3
-3 4
-4 2
-* */
-
-
 public class Main {
 
-    static ArrayList<Integer> Graph[];
-    static boolean Visited[];
-    static int V, E;
+    static int unf[];
 
-    static int[] check;
-    static boolean IsEven;
+    static int find(int v) {
+        if (unf[v] == v) {
+            return v;
+        } else {
+            return unf[v] = find(unf[v]);
+        }
+    }
+
+    static void union(int a, int b) {
+        a = find(a);
+        b = find(b);
+        if (a != b) {
+            unf[b] = a;
+        }
+    }
 
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        StringBuilder sb = new StringBuilder();
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        int T = Integer.parseInt(br.readLine());
-
-        for (int testCase = 0; testCase < T; testCase++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-
-            V = Integer.parseInt(st.nextToken());
-            E = Integer.parseInt(st.nextToken());
-
-            Graph = new ArrayList[V + 1];
-            Visited = new boolean[V + 1];
-            check = new int[V + 1];
-            IsEven = true;
-
-            for (int i = 0; i < Graph.length; i++) {
-                Graph[i] = new ArrayList<>();
-            }
-
-            for (int i = 0; i < E; i++) {
-                st = new StringTokenizer(br.readLine());
-
-                int u = Integer.parseInt(st.nextToken());
-                int v = Integer.parseInt(st.nextToken());
-
-                Graph[u].add(v);
-                Graph[v].add(u);
-            }
-
-            /*for (int i = 1; i <= V; i++) {
-                System.out.println("Graph[" + i + "] : " + Graph[i]);
-            }*/
-
-            for (int i = 1; i <= V; i++) {
-                if (IsEven) {
-                    bfs(i);
-                } else
-                    break;
-            }
-
-            if (IsEven) {
-                sb.append("YES\n");
-            } else {
-                sb.append("NO\n");
-            }
-
+        unf = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            unf[i] = i;
         }
 
-        System.out.println(sb);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < m; i++) {
+            st = new StringTokenizer(br.readLine());
+            if (Integer.parseInt(st.nextToken()) == 0) {
+                union(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+            } else {
+                int fa = find(Integer.parseInt(st.nextToken()));
+                int fb = find(Integer.parseInt(st.nextToken()));
 
-    }
-
-    static void bfs(int node) {
-
-        Visited[node] = true;
-
-        Queue<Integer> q = new LinkedList<>();
-        q.add(node);
-
-        while (!q.isEmpty()) {
-
-            int curr = q.poll();
-
-            for (int next : Graph[curr]) {
-
-                if (Visited[next] == false) {
-
-                    // 인접합 노드는 같은 집합이 아니므로 이전 노드와 다른 집합으로 처리하기
-                    check[next] = (check[curr] + 1) % 2;
-
-                    Visited[next] = true;
-                    q.add(next);
-
-                } else if (check[curr] == check[next]) {
-                    IsEven = false;
+                if (fa == fb) {
+                    sb.append("YES\n");
+                } else {
+                    sb.append("NO\n");
                 }
 
             }
-
         }
+
+        System.out.println(sb);
 
     }
 
