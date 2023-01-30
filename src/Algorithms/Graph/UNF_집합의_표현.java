@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+// 1717
 public class UNF_집합의_표현 {
 
     static int unf[];

@@ -1,11 +1,11 @@
-package Practice;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.StringTokenizer;
 
-public class Main {
+public class Code_1976 {
 
     static int unf[];
 
@@ -41,6 +41,7 @@ public class Main {
             unf[i] = i;
         }
 
+        // 인접행렬이 1인 값들이 모두 같은 indexRoute 를 가진다면 이어진 것, 여행 가능
         int Graph[][] = new int[N + 1][N + 1];
 
         for (int i = 1; i <= N; i++) {
