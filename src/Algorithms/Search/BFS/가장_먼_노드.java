@@ -1,11 +1,13 @@
-package Practice;
+package Algorithms.Search.BFS;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
-public class Main {
+// 프로그래머스 문제, Depth 를 구해야 하는 문제였음
+// https://school.programmers.co.kr/learn/courses/30/lessons/49189
+public class 가장_먼_노드 {
 
     static ArrayList<Integer> Graph[];
     static boolean Visited[];
