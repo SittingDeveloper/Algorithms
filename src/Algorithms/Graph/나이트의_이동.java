@@ -1,11 +1,14 @@
-package Practice;
+package Algorithms.Graph;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
-public class Main {
+// 7562
+public class 나이트의_이동 {
 
     static boolean Visited[][];
 
@@ -77,6 +80,7 @@ public class Main {
         Queue<int[]> q = new LinkedList<>();
         q.add(new int[]{startX, startY});
 
+        // 나이트 이동 경로
         int dx[] = {1, 2, 2, 1, -1, -2, -1, -2};
         int dy[] = {-2, -1, 1, 2, -2, -1, 2, 1};
 
@@ -95,12 +99,14 @@ public class Main {
                     continue;
                 }
 
+                // Depth 배열 값 입력
                 if (Visited[x][y] == false) {
 
                     q.add(new int[]{x, y});
                     Visited[x][y] = true;
                     Depth[x][y] = Depth[curr[0]][curr[1]] + 1;
 
+                    // 목표 좌표를 찾으면 종료
                     if (x == find_x && y == find_y) {
                         find = true;
                         break;
@@ -116,4 +122,5 @@ public class Main {
 
         }
     }
+    
 }

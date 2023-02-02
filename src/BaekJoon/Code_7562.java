@@ -1,11 +1,13 @@
-package Practice;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
-public class Main {
+public class Code_7562 {
 
     static boolean Visited[][];
 
@@ -21,48 +23,30 @@ public class Main {
         StringTokenizer st;
         StringBuilder sb = new StringBuilder();
 
-        // 테스트 케이스
         int testCase = Integer.parseInt(br.readLine());
 
         for (int T = 0; T < testCase; T++) {
 
-            // 체스판 한 변의 길이
             I = Integer.parseInt(br.readLine());
 
             Visited = new boolean[I][I];
             Depth = new int[I][I];
 
-            // 체스가 처음으로 놓이는 좌표
             st = new StringTokenizer(br.readLine());
             int u = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
 
-            // 목표 좌표
             st = new StringTokenizer(br.readLine());
             find_x = Integer.parseInt(st.nextToken());
             find_y = Integer.parseInt(st.nextToken());
 
 
-            // 처음으로 놓이는 좌표와 목표 좌표가 같다면 탐색하지 않음
             if (u == find_x && v == find_y) {
                 sb.append(Depth[find_x][find_y] + "\n");
                 continue;
             }
 
             bfs(u, v);
-
-            /*
-            3
-            8
-            0 0
-            7 0
-            * */
-            /*for (int i = 0; i < I; i++) {
-                for (int j = 0; j < I; j++) {
-                    System.out.print(Depth[i][j] + " ");
-                }
-                System.out.println();
-            }*/
 
             sb.append(Depth[find_x][find_y] + "\n");
         }
@@ -116,4 +100,5 @@ public class Main {
 
         }
     }
+
 }
