@@ -1,11 +1,13 @@
-package Practice;
+package Algorithms.Graph;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
-public class Main {
+public class 벽_부수고_이동하기 {
 
     static int Graph[][];
     static int Distance[][];
