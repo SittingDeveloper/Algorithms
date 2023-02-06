@@ -10,6 +10,7 @@ import java.util.StringTokenizer;
 // 7562
 public class 나이트의_이동 {
 
+    // 방문한 노드
     static boolean Visited[][];
 
     // Depth를 그리는 그래프

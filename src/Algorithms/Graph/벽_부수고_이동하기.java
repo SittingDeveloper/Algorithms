@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+// 2206
 public class 벽_부수고_이동하기 {
 
     static int Graph[][];
@@ -23,7 +24,7 @@ public class 벽_부수고_이동하기 {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        // 0 0 입력 예외처리
+        // 1 1 입력 예외처리
         if ( (N - 1 == 0) && (M - 1 == 0)) {
             System.out.println(1);
             System.exit(0);
@@ -54,17 +55,13 @@ public class 벽_부수고_이동하기 {
         // Graph[0][0] 부터 탐색 시작
         bfs(0, 0);
 
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
-                System.out.print(Distance[i][j] + " ");
-            }
-            System.out.println();
-        }
+
 
     }
 
     static void bfs(int startX, int startY) {
 
+        // 첫 노드 시작
         Visited[0][startX][startY] = true;
 
         Queue<int[]> q = new LinkedList<>();
@@ -93,7 +90,7 @@ public class 벽_부수고_이동하기 {
                 if (Graph[x][y] == 1) {
 
                     // 벽을 부수지 않았고, 그 벽을 방문한 적이 없음
-                    if (curr[2] == 0 && !Visited[1][x][y]) {
+                    if (curr[2] == 0 && (Visited[curr[2]][x][y] == false) ) {
 
                         Visited[curr[2]][x][y] = true; // 방문 처리
                         Distance[x][y] = Distance[curr[0]][curr[1]] + 1; // Distance 거리 배열 값 입력
@@ -105,7 +102,7 @@ public class 벽_부수고_이동하기 {
                 // 벽이 없을 경우
                 else {
                     // 해당 칸을 방문하지 않은 경우
-                    if (!Visited[curr[2]][x][y]) {
+                    if (Visited[curr[2]][x][y] == false) {
 
                         Visited[curr[2]][x][y] = true; // 방문 처리
                         Distance[x][y] = Distance[curr[0]][curr[1]] + 1; // Distance 거리 배열 값 입력
