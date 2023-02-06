@@ -1,11 +1,12 @@
-package Practice;
+package Algorithms.DP;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.StringTokenizer;
 
-public class Main {
+// 14501
+public class 퇴사 {
 
     public static void main(String[] args) throws IOException {
 
@@ -31,14 +32,14 @@ public class Main {
         }
 
         /* 점화식
-        *  DP[i] = i번 째 날 부터 퇴사날 까지 벌 수 있는 최대 수입, D[0] 부터가 아니라 D[N] 부터 계산해야함
-        *
-        *  오늘 시작되는 상담을 했을 때 퇴사일 까지 끝나지 않는 경우
-        *  DP[i] = DP[i+1],
-        *
-        *  오늘 시작되는 상담을 했을 때 퇴사일 안에 끝나는 경우
-        *  DP[i] = Math.max(DP[i+1], DP[i + Day[i] + Pay[i]),
-        *  */
+         *  DP[i] = i번 째 날 부터 퇴사날 까지 벌 수 있는 최대 수입, D[0] 부터가 아니라 D[N] 부터 계산해야함
+         *
+         *  오늘 시작되는 상담을 했을 때 퇴사일 까지 끝나지 않는 경우
+         *  DP[i] = DP[i+1],
+         *
+         *  오늘 시작되는 상담을 했을 때 퇴사일 안에 끝나는 경우
+         *  DP[i] = Math.max(DP[i+1], DP[i + Day[i] + Pay[i]),
+         *  */
 
         for (int i = N; i > 0; i--) {
 
