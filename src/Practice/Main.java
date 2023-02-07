@@ -10,73 +10,32 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        // 곡 개수
-        int N = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(br.readLine());
 
-        // 시작 볼륨
-        int S = Integer.parseInt(st.nextToken());
+        /*
+        * D[N] = 2 * N 직사각형을 채우는 경우의 수
+        * D[N]을 구하고 싶을 때 D[N-1] 이나 D[N-2]가 구해져 있다고 가정,
+        * D[N]과 D[N-1] & D[N-2]의 인과관계를 생각하고 나서 D[N-1] & D[N-2]를 구하는 것이
+        * 점화식을 쉽게 구하는 요령
+        *
+        * D[N-1] -> D[N] 으로 갈 수 있는 방법은 D[N-1] 에서 한 칸만 더 채운 형태.
+        * D[N-2] -> D[N] 으로 갈 수 있는 방법은 가로로 눕히는 방법 하나. 세로로 세운 형태는 D[N-1]에 포함됨.
+        *
+        * 즉, 점화식은 D[N] = (D[N-1] + D[N-2])
+        * D[N] : 길이 N으로 만들 수 있는 타일의 경우의 수
+        * */
 
-        // 볼륨의 맥스 사이즈
-        int M = Integer.parseInt(st.nextToken());
+        long D[] = new long[N + 1];
 
-        int result = -1;
+        D[1] = 1;
+        D[2] = 2;
 
-        // 메모이제이션
-        int d[] = new int[M + 1];
-
-        // 각 곡이 시작하기 전에 줄 수 있는 볼륨의 차이 배열
-        int V[] = new int[N + 1];
-
-        st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < N; i++) {
-            V[i] = Integer.parseInt(st.nextToken());
+        for (int i = 3; i < D.length; i++) {
+            D[i] = (D[i - 1] + D[i - 2]) % 10007;
         }
 
-        for (int i = 0; i < d.length; i++) {
-            d[i] = -1;
-        }
-
-        d[S] = 0;
-
-        // V : 볼륨배열
-        for (int i = 1; i < V.length; i++) {
-
-            // 바꾼 뒤 볼륨 저장할 ArrayList
-            List<Integer> changer = new ArrayList<>();
-            
-            for (int j = 0; j < d.length; j++) {
-
-                /* 다음 볼륨을 구하기 위해 현재 시점의 곡 순서에서 이전 시점에 불린 (곡d[x] = 현재시점 - 1) 의 정보를 통해 구한다 */
-                if (d[j] == i - 1) {
-                    int minus = j - V[i - 1];
-                    int plus = j + V[i - 1];
-
-                    if (minus >= 0) {
-                        changer.add(minus);
-                    }
-                    if (plus <= M) {
-                        changer.add(plus);
-                    }
-                }
-            }
-
-            for (int k : changer) {
-                System.out.println(k);
-                d[k] = i;
-            }
-
-        }
-
-        // 최고값을 result 저장
-        for (int i = 0; i < d.length; i++) {
-            if (d[i] == N) {
-                result = Math.max(i, result);
-            }
-        }
-
-        System.out.println(result);
+        System.out.println(D[N]);
 
     }
 
