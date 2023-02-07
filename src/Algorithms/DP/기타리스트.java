@@ -1,11 +1,14 @@
-package Practice;
+package Algorithms.DP;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
-public class Main {
+// 1495
+public class 기타리스트 {
 
     public static void main(String[] args) throws IOException {
 
@@ -45,7 +48,7 @@ public class Main {
 
             // 바꾼 뒤 볼륨 저장할 ArrayList
             List<Integer> changer = new ArrayList<>();
-            
+
             for (int j = 0; j < d.length; j++) {
 
                 /* 다음 볼륨을 구하기 위해 현재 시점의 곡 순서에서 이전 시점에 불린 (곡d[x] = 현재시점 - 1) 의 정보를 통해 구한다 */
