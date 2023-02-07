@@ -1,10 +1,11 @@
-package Practice;
+package Algorithms.DP;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
+// 10844
+public class 쉬운계단수 {
 
     static long mod = 1000000000;
 
@@ -53,5 +54,6 @@ public class Main {
         System.out.println(result % mod);
 
     }
+
 
 }
