@@ -7,6 +7,13 @@ import java.io.InputStreamReader;
 // 10844
 public class 쉬운계단수 {
 
+    /*
+     * 높이에 따른 점화식
+     * D[i][0] = D[i-1][1] // H = 0
+     * D[i][9] = D[i-1][8] // H = 9
+     * D[i][H] = D[i-1][H-1] + D[i-1][H+1]
+     * */
+
     static long mod = 1000000000;
 
     public static void main(String[] args) throws IOException {
@@ -39,7 +46,7 @@ public class 쉬운계단수 {
                     dp[i][9] = dp[i - 1][8] % mod;
                 }
 
-                // 그 이외의 경우 이전 자릿값 +1, -1의 합이 된다.
+                // 높이가 1~8이면 N-1에서 자신보다 한 단계 위 또는 아래 높이에서 올 수 있다.
                 else {
                     dp[i][j] = (dp[i - 1][j - 1] + dp[i - 1][j + 1]) % mod;
                 }

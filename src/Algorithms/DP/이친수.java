@@ -12,6 +12,10 @@ public class 이친수 {
         /*
          * D[i][0] : i 길이에서 끝이 0으로 끝나는 이친수의 개수
          * D[i][1] : i 길이에서 끝이 1로 끝나는 이친수의 개수
+         *
+         * 점화식
+         * D[i][0] = D[i - 1][1] + D[i - 1][0];
+         * D[i][1] = D[i - 1][0];
          * */
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

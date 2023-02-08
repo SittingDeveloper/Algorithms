@@ -10,6 +10,7 @@ public class 정수를_1로_만들기 {
     public static void main(String[] args) throws IOException {
 
         /*
+         * 점화식
          * DP 문제라고 의심된다면 점화식 필수 !!!!
          * DP[i] = i, i 에서 1로 만드는데 걸리는 최소 연산 횟수
          *

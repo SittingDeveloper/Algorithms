@@ -1,4 +1,4 @@
-package Practice;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class Main {
+public class Code_1753 {
 
     static ArrayList<Node> Graph[];
     static boolean Visited[];
@@ -46,7 +46,7 @@ public class Main {
         }
 
         // 인접리스트 값 입력
-       for (int i = 0; i < E; i++) {
+        for (int i = 0; i < E; i++) {
             st = new StringTokenizer(br.readLine());
             // Edge Info
             int u = Integer.parseInt(st.nextToken());
@@ -97,26 +97,28 @@ public class Main {
             }
         }
     }
-}
 
-class Node implements Comparable<Node>{
-    int Vertex;
-    int Cost;
+    static class Node implements Comparable<Node> {
+        int Vertex;
+        int Cost;
 
-    Node(int Vertex, int Cost) {
-        this.Vertex = Vertex;
-        this.Cost = Cost;
-    }
+        Node(int Vertex, int Cost) {
+            this.Vertex = Vertex;
+            this.Cost = Cost;
+        }
 
-    // 1  : 크다 x > 0, 현재 개체가 매개 변수 개체보다 큰 경우
-    // -1 : 작다 x < 0, 현재 개체가 매개 변수 개체보다 작은 경우
-    // 0  : 같다 x == 0, 현재 개체와 매개 변수 개체가 같은 값일 경우
-    @Override
-    public int compareTo(Node o) {
+        // 1  : 크다 x > 0, 현재 개체가 매개 변수 개체보다 큰 경우
+        // -1 : 작다 x < 0, 현재 개체가 매개 변수 개체보다 작은 경우
+        // 0  : 같다 x == 0, 현재 개체와 매개 변수 개체가 같은 값일 경우
+        @Override
+        public int compareTo(Node o) {
         /*if (this.Cost > o.Cost)
             return 1;
         else
             return -1;*/
-        return this.Cost - o.Cost;
+            return this.Cost - o.Cost;
+        }
+
     }
+
 }

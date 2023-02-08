@@ -31,7 +31,7 @@ public class 퇴사 {
             Pay[i] = Integer.parseInt(st.nextToken());
         }
 
-        /* 점화식
+        /*  점화식
          *  DP[i] = i번 째 날 부터 퇴사날 까지 벌 수 있는 최대 수입, D[0] 부터가 아니라 D[N] 부터 계산해야함
          *
          *  오늘 시작되는 상담을 했을 때 퇴사일 까지 끝나지 않는 경우

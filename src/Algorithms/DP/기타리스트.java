@@ -10,6 +10,11 @@ import java.util.StringTokenizer;
 // 1495
 public class 기타리스트 {
 
+    /*
+    점화식
+
+    * */
+
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
