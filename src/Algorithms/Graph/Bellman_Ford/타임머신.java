@@ -1,4 +1,4 @@
-package Practice;
+package Algorithms.Graph.Bellman_Ford;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,9 +6,8 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Main {
-
-    // N : 도시(Node),  M : 버스(Edge)
+// 11657
+public class 타임머신 { // N : 도시(Node),  M : 버스(Edge)
     static int N, M;
 
     // *핵심 : 벨만-포드는 엣지 리스트로 구현한다.
@@ -99,18 +98,20 @@ public class Main {
         }
 
     }
-}
 
-class Edge {
+    static class Edge {
 
-    int StartNode;
-    int EndNode;
-    int Cost;
+        int StartNode;
+        int EndNode;
+        int Cost;
 
-    Edge(int StartNode, int EndNode, int Cost) {
-        this.StartNode = StartNode;
-        this.EndNode = EndNode;
-        this.Cost = Cost;
+        Edge(int StartNode, int EndNode, int Cost) {
+            this.StartNode = StartNode;
+            this.EndNode = EndNode;
+            this.Cost = Cost;
+        }
+
     }
 
 }
+
