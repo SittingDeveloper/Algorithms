@@ -53,7 +53,7 @@ public class Main {
         Distance[1] = 0;
 
         // 벨만포드 알고리즘 수행
-        for (int i = 1; i < N; i++) {
+        for (int i = 0; i < N - 1; i++) {
             for (int j = 0; j < M; j++) {
                 Edge edge = edges[j];
 
