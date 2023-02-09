@@ -1,4 +1,4 @@
-package Practice;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class Main {
+public class Code_1504 {
 
-    static int V, E, K;
+    static int N, E;
+
     static ArrayList<Node> Graph[];
     static boolean Visited[];
     static int Distance[];
@@ -19,35 +20,47 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        V = Integer.parseInt(st.nextToken());
+        N = Integer.parseInt(st.nextToken());
         E = Integer.parseInt(st.nextToken());
-        K = Integer.parseInt(br.readLine());
 
-        Graph = new ArrayList[V + 1];
-        Visited = new boolean[V + 1];
-        Distance = new int[V + 1];
+        Graph = new ArrayList[N + 1];
+        Visited = new boolean[N + 1];
+        Distance = new int[N + 1];
 
-        for (int i = 0; i < Graph.length ; i++) {
+        for (int i = 0; i < N + 1; i++) {
             Graph[i] = new ArrayList<>();
-        }
-
-        for (int i = 0; i < Distance.length; i++) {
-            Distance[i] = Integer.MAX_VALUE;
         }
 
         for (int i = 0; i < E; i++) {
             st = new StringTokenizer(br.readLine());
             int u = Integer.parseInt(st.nextToken());
-
             int v = Integer.parseInt(st.nextToken());
             int w = Integer.parseInt(st.nextToken());
 
             Graph[u].add(new Node(v, w));
+            Graph[v].add(new Node(u, w));
+        }
+
+        st = new StringTokenizer(br.readLine());
+        int v1 = Integer.parseInt(st.nextToken());
+        int v2 = Integer.parseInt(st.nextToken());
+
+        int min = Math.min((Dijkstra(1, v1) + Dijkstra(v1, v2) + Dijkstra(v2, N)),
+                (Dijkstra(1, v2) + Dijkstra(v2, v1) + Dijkstra(v1, N) ));
+
+        System.out.println(min);
+    }
+
+    static int Dijkstra(int startNode, int endNode) {
+
+        for (int i = 0; i < Distance.length; i++) {
+            Distance[i] = Integer.MAX_VALUE;
+            Visited[i] = false;
         }
 
         PriorityQueue<Node> pq = new PriorityQueue<>();
-        pq.add(new Node(K, 0));
-        Distance[K] = 0;
+        pq.add(new Node(startNode, 0));
+        Distance[startNode] = 0;
 
         while (!pq.isEmpty()) {
 
@@ -61,31 +74,28 @@ public class Main {
             Visited[curr_vertex] = true;
 
             for (int i = 0; i < Graph[curr_vertex].size(); i++) {
-
                 Node tmp = Graph[curr_vertex].get(i);
-                int next = tmp.Vertex;
-                int cost = tmp.Cost;
 
-                if (Distance[next] > Distance[curr_vertex] + cost) {
-                    Distance[next] = Distance[curr_vertex] + cost;
-                    // Distance == 거리
+                int next = tmp.Vertex;
+                int Cost = tmp.Cost;
+
+                if (Distance[next] > Distance[curr_vertex] + Cost) {
+                    Distance[next] = Distance[curr_vertex] + Cost;
                     pq.add(new Node(next, Distance[next]));
                 }
             }
         }
 
-        for (int i = 1; i < Distance.length; i++) {
-            if (Visited[i] == true) {
-                System.out.println(Distance[i]);
-            } else {
-                System.out.println("INF");
-            }
+        if (Visited[endNode] == false) {
+            System.out.println(-1);
+            System.exit(0);
         }
+
+        return Distance[endNode];
 
     }
 
-    static class Node implements Comparable<Node> {
-
+    static class Node implements Comparable<Node>{
         int Vertex;
         int Cost;
 
@@ -96,7 +106,7 @@ public class Main {
 
         @Override
         public int compareTo(Node node) {
-            return this.Cost - Cost;
+            return this.Cost - node.Cost;
         }
 
     }
