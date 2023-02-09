@@ -1,4 +1,4 @@
-package Practice;
+package Algorithms.Dijkstra;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,13 +7,15 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class Main {
+// 1916
+public class 최소비용_구하기 {
+
     /*
-    * N : 도시의 개수  (Vertex)
-    * M : 버스의 개수  (Edge)
-    * startPoint : 시작점
-    * endPoint   : 종료점
-    * */
+     * N : 도시의 개수  (Vertex)
+     * M : 버스의 개수  (Edge)
+     * startPoint : 시작점
+     * endPoint   : 종료점
+     * */
     static int N, M, startPoint, endPoint;
     static ArrayList<Node> Graph[];
     static boolean Visited[];
