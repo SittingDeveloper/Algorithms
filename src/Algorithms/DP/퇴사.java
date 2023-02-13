@@ -38,7 +38,7 @@ public class 퇴사 {
          *  DP[i] = DP[i+1],
          *
          *  오늘 시작되는 상담을 했을 때 퇴사일 안에 끝나는 경우
-         *  DP[i] = Math.max(DP[i+1], DP[i + Day[i] + Pay[i]),
+         *  DP[i] = Math.max(DP[i+1], DP[i + Day[i]] + Pay[i]),
          *  */
 
         for (int i = N; i > 0; i--) {

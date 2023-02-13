@@ -42,7 +42,10 @@ public class 타임머신 { // N : 도시(Node),  M : 버스(Edge)
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
+        // 노드의 수
         N = Integer.parseInt(st.nextToken());
+
+        // 에지의 수
         M = Integer.parseInt(st.nextToken());
 
         edges = new Edge[M + 1];
@@ -66,7 +69,7 @@ public class 타임머신 { // N : 도시(Node),  M : 버스(Edge)
 
         // 벨만포드 알고리즘 수행
         // N-1 만큼 반복
-        for (int i = 0; i < N-1; i++) {
+        for (int i = 0; i < N - 1; i++) {
 
             // 벨만포드는 한번의 연산마다 모든 최단거리(Distance) 테이블을 업데이트해야한다. (다익스트라와의 차이점)
             for (int j = 0; j < M; j++) {
@@ -75,14 +78,18 @@ public class 타임머신 { // N : 도시(Node),  M : 버스(Edge)
                 // 매번 모든 간선을 전부 확인한다.
 
                 /*
-                 * Distance[edge.StartNode] != Integer.MAX_VALUE :
-                 * 출발노드가 무한대가 아니면서 ( 즉, 이미 방문한 적 있고 )
-                 *
+                 * Distance[edge.StartNode] == Integer.MAX_VALUE :
+                 * 출발노드가 방문한적없는이 없는 노드일때는 업데이트하지 않는다.
+                 * */
+                if (Distance[edge.StartNode] == Integer.MAX_VALUE) {
+                    continue;
+                }
+
+                /*
                  * Distance[edge.EndNode] > Distance[edge.StartNode] + edge.Cost :
                  * (종료노드값 > 출발노드값 + 에지 가중치) 일 때 종료노드값을 출발노드값 + 에지 가중치로 업데이트
                  * */
-                if (Distance[edge.StartNode] != Integer.MAX_VALUE &&
-                        Distance[edge.EndNode] > Distance[edge.StartNode] + edge.Cost) {
+                if (Distance[edge.EndNode] > Distance[edge.StartNode] + edge.Cost) {
                     Distance[edge.EndNode] = Distance[edge.StartNode] + edge.Cost;
                 }
             }

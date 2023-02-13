@@ -12,9 +12,13 @@ public class 기타레슨 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
+        // 레슨 수
         int N = Integer.parseInt(st.nextToken());
+
+        // 블루레이 수
         int M = Integer.parseInt(st.nextToken());
 
+        // 기타 레슨의 길이
         int A[] = new int[N];
 
         st = new StringTokenizer(br.readLine());
@@ -28,6 +32,7 @@ public class 기타레슨 {
         // 모든 레슨 길이의 합
         int endIndex = 0;
 
+        // 최대길이의의 레슨과 모든 레슨 길이의 을 구함
         for (int i = 0; i < N; i++) {
             if (startIndex < A[i])
                 startIndex = A[i];
@@ -57,6 +62,8 @@ public class 기타레슨 {
                 count++;
             }
 
+            // 중간값 크기로 모든 레슨을 저장할 수 있으면 종료 인덱스 = 중앙값 - 1
+            // 중간값 크기로 모든 레슨을 저장할 수 없으면 종료 인덱스 = 중앙값 + 1
             if (count > M)
                 startIndex = middleIndex + 1;
             else

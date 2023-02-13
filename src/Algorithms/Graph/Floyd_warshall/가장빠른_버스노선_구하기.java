@@ -1,12 +1,12 @@
-package Practice;
+package Algorithms.Graph.Floyd_warshall;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Main {
+// 11404
+public class 가장빠른_버스노선_구하기 {
 
     // N : 도시의 수(Node) , M : 버스의 수(Edge)
     static int N, M;
@@ -83,4 +83,5 @@ public class Main {
         }
 
     }
+
 }
