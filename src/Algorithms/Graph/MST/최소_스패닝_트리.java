@@ -1,14 +1,13 @@
-package Practice;
+package Algorithms.Graph.MST;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class Main {
+// 1197
+public class 최소_스패닝_트리 {
 
     static int unf[];
     static PriorityQueue<Edge> pq;
@@ -35,13 +34,13 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         /*
-        * 최소신장트리의 핵심 이론
-        * 1. Edge List 그래프를 구현하고 유니온 파인드 배열 초기화하기
-        * 2. 그래프 데이터를 가중치 기준으로 정렬하기
-        * 3. 가중치가 낮은 에지부터 연결 시도하기 (find 이후 트리노드가 다르다면 union)
-        * 4. 과정3 반복하기 ( for (edge 수 == N - 1) )
-        * 5. 총 에지 비용 출력하기
-        * */
+         * 최소신장트리의 핵심 이론
+         * 1. Edge List 그래프를 구현하고 유니온 파인드 배열 초기화하기
+         * 2. 그래프 데이터를 가중치 기준으로 정렬하기
+         * 3. 가중치가 낮은 에지부터 연결 시도하기 (find 이후 트리노드가 다르다면 union)
+         * 4. 과정3 반복하기 ( for (edge 수 == N - 1) )
+         * 5. 총 에지 비용 출력하기
+         * */
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -72,7 +71,7 @@ public class Main {
         int usedEdge = 0;
 
         // 총 비용
-       int result = 0;
+        int result = 0;
 
         while (usedEdge < V - 1) {
             Edge curr = pq.poll();
