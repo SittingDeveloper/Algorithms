@@ -1,12 +1,11 @@
-package Practice;
+package Algorithms.Tree.Binary_Tree;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.StringTokenizer;
 
-// 1991
-public class Main {
+public class 트리_순회 {
 
     static int tree[][];
 
@@ -16,12 +15,12 @@ public class Main {
         StringTokenizer st;
 
         /*
-        * 트리의 노드와 배열의 인덱스 사이 상관 관계 (N : 노드의 개수)
-        * 루트노드      : index = 1
-        * 부모노드      : index = index / 2 && index != 1
-        * 왼쪽자식노드   : index = index * 2 && index * 2 <= N
-        * 오른쪽자식노드 : index = index * 2 + 1 && index * 2 + 1 <= N
-        * */
+         * 트리의 노드와 배열의 인덱스 사이 상관 관계 (N : 노드의 개수)
+         * 루트노드      : index = 1
+         * 부모노드      : index = index / 2 && index != 1
+         * 왼쪽자식노드   : index = index * 2 && index * 2 <= N
+         * 오른쪽자식노드 : index = index * 2 + 1 && index * 2 + 1 <= N
+         * */
 
         int N = Integer.parseInt(br.readLine());
         tree = new int[26][2]; // N의 범위 26, 0 : 왼쪽자식 1 : 오른쪽자식
@@ -62,6 +61,7 @@ public class Main {
 
     }
 
+     /* 호출 순서에 주의 !!!! */
     static void preOrder(int now) {
         if (now == -1) {
             return;
