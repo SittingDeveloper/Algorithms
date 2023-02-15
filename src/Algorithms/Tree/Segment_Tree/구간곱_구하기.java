@@ -1,11 +1,11 @@
-package Practice;
+package Algorithms.Tree.Segment_Tree;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.StringTokenizer;
 
-public class Main {
+public class 구간곱_구하기 {
 
     static long tree[];
     static int Mod;

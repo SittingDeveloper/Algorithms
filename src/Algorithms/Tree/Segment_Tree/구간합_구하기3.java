@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class 구간합구하기3 {
+public class 구간합_구하기3 {
 
     static long tree[];
 
