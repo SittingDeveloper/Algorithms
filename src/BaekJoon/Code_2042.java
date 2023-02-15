@@ -1,11 +1,11 @@
-package Practice;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.StringTokenizer;
 
-public class Main {
+public class Code_2042 {
 
     static long tree[];
 
@@ -19,20 +19,16 @@ public class Main {
         int M = Integer.parseInt(st.nextToken()); // 수의 변경이 일어나는 횟수
         int K = Integer.parseInt(st.nextToken()); // 구간의 합을 구하는 횟수
 
-        /* 트리의 높이를 구하는 공식*/
         int treeHeight = 0;
         int length = N;
         while (length != 0) {
             length /= 2;
             treeHeight++;
         }
-        /*=======================*/
 
-        // totalNodeCount =  2^k * 2, == 2^(k+1)
         int totalNodeCount = (int)Math.pow(2, treeHeight + 1);
         int leftNodeStart = totalNodeCount / 2 - 1; // input 5? == output 7
 
-        // 0 번째 노드 사용X
         tree = new long[totalNodeCount + 1];
 
         // 트리 데이터 입력
@@ -62,7 +58,6 @@ public class Main {
 
     }
 
-    // 트리 초기화
     private static void setTree(int totalNodeCount) {
         while (totalNodeCount != 1) {
             tree[totalNodeCount / 2] += tree[totalNodeCount];
@@ -70,7 +65,6 @@ public class Main {
         }
     }
 
-    // 값 변경
     private static void changeVal(int index, long val) {
 
         long diff = val - tree[index];
@@ -82,7 +76,6 @@ public class Main {
 
     }
 
-    // 구간합
     private static long getSum(int s, int e) {
 
         long partSum = 0;
@@ -106,4 +99,5 @@ public class Main {
         }
         return partSum;
     }
+
 }
