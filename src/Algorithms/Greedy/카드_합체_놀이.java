@@ -1,11 +1,13 @@
-package Practice;
+package Algorithms.Greedy;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.PriorityQueue;
+import java.util.StringTokenizer;
 
-public class Main {
+// 15903
+public class 카드_합체_놀이 {
 
     public static void main(String[] args) throws IOException {
 
