@@ -1,11 +1,12 @@
-package Practice;
+package Algorithms.Greedy;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.StringTokenizer;
 
-public class Main {
+// 1080
+public class 행렬 {
 
     static int Graph_A[][];
     static int Graph_B[][];

@@ -1,11 +1,11 @@
-package Practice;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.StringTokenizer;
 
-public class Main {
+public class Code_1080 {
 
     static int Graph_A[][];
     static int Graph_B[][];
@@ -19,7 +19,6 @@ public class Main {
         int M = Integer.parseInt(st.nextToken());
         int count = 0;
 
-        // 계속되서 업데이트될 Graph_A
         Graph_A = new int[N][M];
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
@@ -29,7 +28,6 @@ public class Main {
             }
         }
 
-        // Graph_A와 비교되는, 변하지 않는 Graph_B
         Graph_B = new int[N][M];
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
@@ -42,13 +40,10 @@ public class Main {
         for (int i = 0; i < N - 2; i++) {
             for (int j = 0; j < M - 2; j++) {
 
-                // 하나라도 값이 맞지 않다면 3*3 행렬 뒤집기
                 if (Graph_A[i][j] != Graph_B[i][j]) {
 
-                    // +1회 변경이 일어났음
                     count++;
 
-                    // 3 * 3 행렬로 비교,
                     int curr_x = i + 2;
                     int curr_y = j + 2;
 
