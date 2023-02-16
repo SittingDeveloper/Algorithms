@@ -1,11 +1,13 @@
-package Practice;
+package Algorithms.Search.BinarySearch;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class Main {
+// 19637
+public class IF문_대신_써줘 {
 
     static ArrayList<Type> list;
 

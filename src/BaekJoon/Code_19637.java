@@ -1,11 +1,13 @@
-package Practice;
+package BaekJoon;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class Main {
+
+public class Code_19637 {
 
     static ArrayList<Type> list;
 
@@ -19,7 +21,6 @@ public class Main {
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-        // Type 형 클래스 list 선언
         list = new ArrayList<>();
 
         for (int i = 0; i < N; i++) {
@@ -42,10 +43,8 @@ public class Main {
 
     }
 
-    // 이진탐색 시작
     static String BinarySearch(int target) {
 
-        // 시작점은 0, 종료점은 리스트(칭호)의 개수
         int start = 0;
         int end = list.size();
 
@@ -60,7 +59,6 @@ public class Main {
             }
         }
 
-        // target 이 속하는 마지막인덱스 다음이 정답 칭호
         return list.get(end + 1).name;
     }
 
