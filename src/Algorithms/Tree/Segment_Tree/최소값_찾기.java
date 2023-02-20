@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+// 10868
 public class 최소값_찾기 {
 
     static long tree[];

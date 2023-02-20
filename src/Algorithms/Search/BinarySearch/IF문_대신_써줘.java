@@ -49,7 +49,7 @@ public class IF문_대신_써줘 {
 
         // 시작점은 0, 종료점은 리스트(칭호)의 개수
         int start = 0;
-        int end = list.size();
+        int end = list.size() - 1;
 
         int mid;
 

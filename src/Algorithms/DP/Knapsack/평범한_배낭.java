@@ -1,11 +1,14 @@
-package Practice;
+package Algorithms.DP.Knapsack;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class Main {
+// 12865, 유한 냅색
+public class 평범한_배낭 {
+
 
     public static void main(String[] args) throws IOException {
 
@@ -25,13 +28,13 @@ public class Main {
             item[i] = new Item(weight, value);
         }
 
-        // 디버깅과 동시에 예외터지는 버그
-       int DP[] = new int[K + 1];
+        int DP[] = new int[K + 1];
         for (int i = 0; i < item.length; i++) {
 
             int curr_weight = item[i].weight;
             int curr_value = item[i].value;
 
+            // 유한 냅색 알고리즘은 역순으로 DP 배열을 채워나가야함
             for (int j = K; j >= curr_weight; j--) {
                 DP[j] = Math.max(DP[j - curr_weight] + curr_value, DP[j]);
             }
@@ -51,5 +54,6 @@ public class Main {
             this.value = value;
         }
     }
+
 
 }

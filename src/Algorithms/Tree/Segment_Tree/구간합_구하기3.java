@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+// 2042
 public class 구간합_구하기3 {
 
     static long tree[];
@@ -42,7 +43,8 @@ public class 구간합_구하기3 {
             tree[i] = Long.parseLong(br.readLine());
         }
 
-        // tree 만들기, 2^4 == 16, 4depth 포화 이진 트리의 최대 노드 개수는 16 - 1 = 15개.
+        // tree 만들기, 위 예시로 들면 tree[7]부터 값을 채워주기 위해 totalNodeCount - 1 입력
+        // total[7] = total[totalNodeCount(15) / 2]
         setTree(totalNodeCount - 1);
 
         for (int i = 0; i < M + K; i++) {
