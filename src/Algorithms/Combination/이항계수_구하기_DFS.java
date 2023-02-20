@@ -31,7 +31,7 @@ public class 이항계수_구하기_DFS {
         if (n == r || r == 0) {
             return 1;
         } else {
-            return DFS(n - 1, r - 1) + DFS(n - 1, r);
+            return dp[n][r] = DFS(n - 1, r - 1) + DFS(n - 1, r);
         }
 
     }

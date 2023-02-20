@@ -1,11 +1,12 @@
-package Practice;
+package Algorithms.Combination;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.StringTokenizer;
 
-public class Main {
+// 1010
+public class 다리_놓기 {
 
     static long dp[][];
 
@@ -22,7 +23,8 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int n = Integer.parseInt(st.nextToken());
             int r = Integer.parseInt(st.nextToken());
-
+            
+            // 이 문제는 r n 위치 바뀌어있었음
             sb.append(dfs(r, n) + "\n");
         }
 
@@ -36,6 +38,7 @@ public class Main {
             return dp[n][r];
         }
 
+        // 메모이제이션 사용하려면 return dp[n][r] = dfs(...) 이렇게 return해야함
         if (n == r || r == 0) {
             return 1;
         } else {
@@ -43,5 +46,6 @@ public class Main {
         }
 
     }
+
 
 }
