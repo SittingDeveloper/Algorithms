@@ -1,11 +1,11 @@
-package Practice;
+package Algorithms.Combination;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
 
-public class Main {
+// 2775
+public class 부녀회장_될거야 {
 
     public static void main(String[] args) throws IOException {
 
