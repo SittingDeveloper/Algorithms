@@ -1,11 +1,11 @@
-package Practice;
+package Algorithms.Greedy;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
 
-public class Main {
+// 2839
+public class 설탕배달 {
 
     public static void main(String[] args) throws IOException {
 
@@ -32,5 +32,6 @@ public class Main {
         System.out.println(count);
 
     }
+
 
 }
