@@ -1,11 +1,12 @@
-package Practice;
+package Algorithms.Search.BinarySearch;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class Main {
+// 2121
+public class 넷이_놀기 {
 
     static int N;
     static ArrayList<Point> p_arr;

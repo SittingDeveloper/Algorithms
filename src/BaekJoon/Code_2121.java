@@ -1,11 +1,11 @@
-package Practice;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class Main {
+public class Code_2121 {
 
     static int N;
     static ArrayList<Point> p_arr;
