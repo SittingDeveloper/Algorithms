@@ -1,11 +1,12 @@
-package Practice;
+package Algorithms.Greedy;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.StringTokenizer;
 
-public class Main {
+// 1244
+public class 스위치_켜고_끄기 {
 
     public static void main(String[] args) throws IOException {
 
@@ -30,12 +31,12 @@ public class Main {
 
             // Male Student
             if (gender == 1) {
-                    for (int j = targetSwitch; j <= Button.length; j = j + targetSwitch) {
-                        if (j >= Button.length) {
-                            continue;
-                        }
-                        Button[j] = Button[j] == 1 ? 0 : 1;
+                for (int j = targetSwitch; j <= Button.length; j = j + targetSwitch) {
+                    if (j >= Button.length) {
+                        continue;
                     }
+                    Button[j] = Button[j] == 1 ? 0 : 1;
+                }
 
             }
 
@@ -87,5 +88,6 @@ public class Main {
         }
 
     }
+
 
 }
