@@ -1,11 +1,13 @@
-package Practice;
+package BaekJoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.Collections;
+import java.util.PriorityQueue;
+import java.util.StringTokenizer;
 
-public class Main {
+public class Code_18230 {
 
     public static void main(String[] args) throws IOException {
 
@@ -30,7 +32,6 @@ public class Main {
 
         int sum = 0;
 
-        // 전체 타일의 크기가 홀수일 경우 2 * 1 하나는 반드시 사용
         if (N % 2 == 1) {
             sum += pq1.poll();
             N--;
