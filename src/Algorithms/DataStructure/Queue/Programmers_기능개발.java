@@ -1,11 +1,9 @@
-package Practice;
+package Algorithms.DataStructure.Queue;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 
-public class Main {
+public class Programmers_기능개발 {
 
     public static void main(String[] args) {
 
@@ -18,23 +16,23 @@ public class Main {
         ArrayList<Integer> arr = new ArrayList<>();
 
         /*
-        * 93, 30, 55
-        * 1 , 30, 5
-        * 작업1 : 7일
-        * 작업2 : 3일
-        * 작업3 : 9일
-        *
-        * 7일째에 (작업1, 작업2) 2가지 기능 배포
-        * 9일째에 (작업3) 1가지 기능 배포
-        *
-        * 94 60 60
-        * 95 90 65
-        * 96 120 70
-        * 97 150 75
-        * 98 180 80
-        * 99 210 85
-        * 100 240 90
-        * */
+         * 93, 30, 55
+         * 1 , 30, 5
+         * 작업1 : 7일
+         * 작업2 : 3일
+         * 작업3 : 9일
+         *
+         * 7일째에 (작업1, 작업2) 2가지 기능 배포
+         * 9일째에 (작업3) 1가지 기능 배포
+         *
+         * 94 60 60
+         * 95 90 65
+         * 96 120 70
+         * 97 150 75
+         * 98 180 80
+         * 99 210 85
+         * 100 240 90
+         * */
 
         Queue<Program> q = new LinkedList<>();
         for (int i = 0; i < progresses.length; i++) {
