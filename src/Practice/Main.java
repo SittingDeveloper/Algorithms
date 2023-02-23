@@ -3,83 +3,109 @@ package Practice;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.StringTokenizer;
+
+/*
+* 예외
+n이 1~(sorted(S)[0]-1) 중 하나의 값인 경우
+4
+5 9 15 12
+2
+* */
 
 public class Main {
 
-    public static void main(String[] args) {
+    static int S[];
 
-//        int progresses[] = {93, 30, 55};
-//        int speeds[] = {1, 30, 5};
+    public static void main(String[] args) throws IOException {
 
-        int progresses[] = {95, 90, 99, 99, 80, 99};
-        int speeds[] = {1, 1, 1, 1, 1, 1};
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int L = Integer.parseInt(br.readLine());
 
-        ArrayList<Integer> arr = new ArrayList<>();
+        S = new int[L];
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < S.length; i++) {
+            S[i] = Integer.parseInt(st.nextToken());
+        }
+
+        Arrays.sort(S);
+
+        int target = Integer.parseInt(br.readLine());
+
+        // 타겟이 배열에 포함되어있으면 쌍을 지을 수 없음, 0 출력하고 종료
+        for (int i = 0; i < S.length; i++) {
+            if (S[i] == target) {
+                System.out.println("0");
+                System.exit(0);
+            }
+        }
+
+
+//        System.out.println(binarySearch(target) + "번 인덱스 다음으로 큰 수");
+        int targetIndex = binarySearch(target);
+        int left_count = 0;
+        int mine_count = 0;
+
+        if (target < S[0]) {
+            for (int i = 1; i < target ; i++) {
+                for (int j = target; j < S[0]; j++) {
+                    left_count++;
+                }
+            }
+        } else {
+            for (int i = S[targetIndex] + 1; i < target ; i++) {
+                for (int j = target; j <= S[targetIndex + 1] - 1; j++) {
+                    left_count++;
+                }
+            }
+        }
+
+        for (int i = target; i < S[targetIndex + 1] - 1; i++) {
+            mine_count++;
+        }
+
+        int result = left_count + mine_count;
+        System.out.println(result);
 
         /*
-        * 93, 30, 55
-        * 1 , 30, 5
-        * 작업1 : 7일
-        * 작업2 : 3일
-        * 작업3 : 9일
         *
-        * 7일째에 (작업1, 작업2) 2가지 기능 배포
-        * 9일째에 (작업3) 1가지 기능 배포
-        *
-        * 94 60 60
-        * 95 90 65
-        * 96 120 70
-        * 97 150 75
-        * 98 180 80
-        * 99 210 85
-        * 100 240 90
+        * int targetIndex = binarySearch(target);
+        int left_count = (target - S[targetIndex] - 1) * (S[targetIndex + 1] - target);
+        int right_count = (S[targetIndex + 1] - target) - 1;
+
+        int result = left_count + right_count;
+        if (result < 0) {
+            result = 0;
+        }
+        System.out.println(result);
         * */
-
-        Queue<Program> q = new LinkedList<>();
-        for (int i = 0; i < progresses.length; i++) {
-            q.add(new Program(progresses[i], speeds[i]));
-        }
-
-        int count;
-        while (!q.isEmpty()) {
-
-            count = 0;
-
-            while (q.size() > 0 && q.peek().progress >= 100) {
-                q.poll();
-                count++;
-            }
-
-            if (count != 0) {
-                arr.add(count);
-            }
-
-            for (int i = 0; i < q.size(); i++) {
-                Program temp = q.poll();
-                int cur_progress = temp.progress + temp.speed;
-                q.add(new Program(cur_progress, temp.speed));
-            }
-
-
-        }
-
-        int answer[] = new int[arr.size()];
-        for (int i = 0; i < answer.length; i++) {
-            answer[i] = arr.get(i);
-        }
-
 
     }
 
-    static class Program {
-        int progress;
-        int speed;
+    static int binarySearch(int target) {
 
-        Program(int progress, int speed) {
-            this.progress = progress;
-            this.speed = speed;
+        int startIndex = 0;
+        int endIndex = S.length - 1;
+
+        while (startIndex <= endIndex) {
+
+            int midIndex = (startIndex + endIndex) / 2;
+            int midValue = S[midIndex];
+
+            if (midValue < target) {
+                startIndex = midIndex + 1;
+            } else {
+                endIndex = midIndex - 1;
+            }
+
         }
+
+        return endIndex;
+
     }
 
 }
