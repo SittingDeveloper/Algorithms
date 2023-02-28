@@ -26,6 +26,7 @@ public class 넷이_놀기 {
 
         p_arr = new ArrayList<>();
 
+        // 점 찍기
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             int x = Integer.parseInt(st.nextToken());
@@ -34,24 +35,30 @@ public class 넷이_놀기 {
             p_arr.add(new Point(x, y));
         }
 
+        // 점들을 정렬해야 구할 수 있음
         Collections.sort(p_arr);
 
         int Rectangle = 0;
         for (int i = 0; i < N; i++) {
+
             int x = p_arr.get(i).x;
             int y = p_arr.get(i).y;
             int cnt = 0;
 
             if (binarySearch(x, y + height)) {
+                // 하단
                 cnt++;
             }
             if (binarySearch(x + width, y)) {
+                // 우측
                 cnt++;
             }
             if (binarySearch(x + width, y + height)) {
+                // 우측 하단
                 cnt++;
             }
 
+            // 하단, 우측, 우측하단에 모두 점이 존재한다면 직사각형 그릴 수 있음
             if (cnt == 3) {
                 Rectangle++;
             }
@@ -79,8 +86,8 @@ public class 넷이_놀기 {
 
             // (x,y) == (0, 3), midValue = (2 , 0)
             // 찾으려는 x값이 midIndex 의 x값 보다 크거나 ||
-            // 찾으려난 x값과 midIndex 의 x값과 같고 &&
-            // midIndex 의 y값이 찾으려난 y값 보다 작다면 (target > mid, left = mid + 1)
+            // 찾으려는 x값이 midIndex 의 x값과 같고 &&
+            // midIndex 의 y값이 찾으려는 y값 보다 작다면 (target > mid, left = mid + 1)
             if (p_arr.get(midIndex).x < x || (p_arr.get(midIndex).x == x && p_arr.get(midIndex).y < y)) {
                 leftIndex = midIndex + 1;
             }

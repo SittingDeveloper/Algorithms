@@ -12,15 +12,17 @@ public class 스위치_켜고_끄기 {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+        // 스위치 개수
         int N = Integer.parseInt(br.readLine());
-
         int Button[] = new int[N + 1];
 
+        // 스위치 입력
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 1; i <= N; i++) {
             Button[i] = Integer.parseInt(st.nextToken());
         }
 
+        // 학생 수
         int students = Integer.parseInt(br.readLine());
 
         for (int i = 0; i < students; i++) {
@@ -31,24 +33,27 @@ public class 스위치_켜고_끄기 {
 
             // Male Student
             if (gender == 1) {
+                // 배수값의 스위치를 reverse
                 for (int j = targetSwitch; j <= Button.length; j = j + targetSwitch) {
                     if (j >= Button.length) {
                         continue;
                     }
                     Button[j] = Button[j] == 1 ? 0 : 1;
                 }
-
             }
 
-            // female Student
+            // Female Student
             else {
 
+                // 자신의 스위치는 반드시 reverse
                 int targetIndex = targetSwitch;
                 Button[targetIndex] = Button[targetIndex] == 1 ? 0 : 1;
 
+                // 좌, 우측 인덱스 검사와 동시에 reverse 진행
                 int prevIndex = targetIndex - 1;
                 int postIndex = targetIndex + 1;
 
+                // prev && post Index 존재할 때에만 reverse 가능
                 while (prevIndex > 0 && postIndex <= Button.length - 1) {
 
                     // 0 0
@@ -77,6 +82,7 @@ public class 스위치_켜고_끄기 {
 
         }
 
+        // 20개 단위로 끊어서 출력
         int size = 0;
         for (int i = 1; i < Button.length; i++) {
             System.out.print(Button[i] + " ");

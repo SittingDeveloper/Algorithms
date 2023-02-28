@@ -19,12 +19,14 @@ public class 예쁜_타일링 {
         int A = Integer.parseInt(st.nextToken());
         int B = Integer.parseInt(st.nextToken());
 
+        // 2 * 1 타일
         PriorityQueue<Integer> pq1 = new PriorityQueue<>(Collections.reverseOrder());
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < A; i++) {
             pq1.add(Integer.parseInt(st.nextToken()));
         }
 
+        // 2 * 2 타일
         PriorityQueue<Integer> pq2 = new PriorityQueue<>(Collections.reverseOrder());
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < B; i++) {
@@ -39,6 +41,7 @@ public class 예쁜_타일링 {
             N--;
         }
 
+        // 짝수로 맞추고 시작
         while (N != 0) {
 
             int A_tile = 0;
@@ -46,16 +49,19 @@ public class 예쁜_타일링 {
             int A_tile_a = 0;
             int A_tile_b = 0;
 
+            // 2 * 1 타일 2개의 합
             if (pq1.size() >= 2) {
                 A_tile_a = pq1.poll();
                 A_tile_b = pq1.poll();
                 A_tile = A_tile_a + A_tile_b;
             }
 
+            // 2 * 2 타일 1개
             if (!pq2.isEmpty()) {
                 B_tile = pq2.poll();
             }
 
+            // 2 * 1 2개 / 2 * 2 1개 비교
             if (A_tile > B_tile) {
                 sum += A_tile;
                 N -= 2;
