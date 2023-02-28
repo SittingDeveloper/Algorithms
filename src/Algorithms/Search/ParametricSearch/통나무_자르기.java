@@ -1,14 +1,12 @@
-package Practice;
+package Algorithms.Search.ParametricSearch;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.StringTokenizer;
 
-public class Main {
+// 2805
+public class 통나무_자르기 {
 
     public static void main(String[] args) throws IOException {
 
@@ -68,4 +66,5 @@ public class Main {
         System.out.println(endParameter);
 
     }
+
 }
