@@ -1,4 +1,4 @@
-package Practice;
+package Algorithms.String;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-public class Main {
+
+// 1181
+public class 단어_정렬 {
 
     public static void main(String[] args) throws IOException {
 
@@ -59,5 +61,6 @@ public class Main {
         }
 
     }
+
 
 }
