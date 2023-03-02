@@ -1,11 +1,12 @@
-package Practice;
+package Algorithms.BackTracking;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.StringTokenizer;
 
-public class Main {
+// 1182
+public class 부분_수열합 {
 
     static int arr[];
     static int N, S;
@@ -28,6 +29,7 @@ public class Main {
 
         dfs(0, 0);
 
+        // 부분 수열 합이 0이라면 S 자체가 포함되어있어서 - 1
         if (S == 0) {
             System.out.println(answer - 1);
         } else {
@@ -45,7 +47,10 @@ public class Main {
             return;
         }
 
+        // 이번 인덱스 값 포함
         dfs(depth + 1, sum + arr[depth]);
+
+        // 이번 인덱스값 포함 X
         dfs(depth + 1, sum);
     }
 
