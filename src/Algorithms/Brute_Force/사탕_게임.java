@@ -1,11 +1,12 @@
-package Practice;
+package Algorithms.Brute_Force;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.StringTokenizer;
 
-public class Main {
+// 3085
+public class 사탕_게임 {
 
     static int N;
     static char Box[][];
@@ -101,6 +102,5 @@ public class Main {
         return max;
 
     }
-
 
 }
