@@ -72,7 +72,7 @@ public class 사탕_게임 {
         // 가로
         for (int i = 0; i < N; i++) {
             // cnt == 1 ? 하나도 안이어졌을때 먹을 수 있는 사탕은 해당 인덱스 하나
-            int cnt =  1;
+            int cnt = 1;
             for (int j = 0; j < N - 1; j++) {
                 // 현재인덱스 + 다음 인덱스의 값이 같을 경우 먹을 수 있는 사탕의 개수 하나 늘어남
                 if (Box[i][j] == Box[i][j + 1]) {
