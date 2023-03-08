@@ -6,28 +6,18 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main {
-    static HashSet<Integer> numberSet = new HashSet<>();
     public static void main(String[] args) throws IOException {
-        String numbers = "145";
 
-        recursive("", numbers);
+        int temp = 0;
 
-        for (int n : numberSet) {
-            System.out.print(n + " ");
-        }
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.stream().mapToInt(e -> e).sum();
 
-    }
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        pq.add(1);
+        pq.add(2);
+        temp = arr.stream().mapToInt(e -> e).sum();
 
-    static void recursive(String comb, String other) {
-
-        if (!comb.equals("")) {
-            numberSet.add(Integer.parseInt(comb));
-        }
-
-        for (int i = 0; i < other.length(); i++) {
-            recursive(comb + other.charAt(i), other.substring(0, i) + other.substring(i + 1));
-        }
 
     }
-
 }
