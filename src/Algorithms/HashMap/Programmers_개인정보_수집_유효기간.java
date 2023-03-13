@@ -35,7 +35,7 @@ public class Programmers_개인정보_수집_유효기간 {
         // 검사 시작
         for (int i = 0 ; i < privacies.length ; i++) {
 
-            st = new StringTokenizer(privacies[i], " ");
+            st = new StringTokenizer(privacies[i], "-");
 
             // 현재 검사하는 날짜
             String cur_today = st.nextToken();
@@ -61,11 +61,11 @@ public class Programmers_개인정보_수집_유효기간 {
             }
 
             cur_day--;
+
             if (cur_day <= 0) {
                 cur_day = 28;
                 cur_month--;
             }
-
             /* === 조건 따지기 완료 === */
 
             // 현재 개인정보의 만료일 표기

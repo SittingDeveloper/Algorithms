@@ -7,61 +7,64 @@ import java.util.*;
 
 public class Main {
 
-    static int maps[][] = {{1, 0, 1, 1, 1}, {1, 0, 1, 0, 1}, {1, 0, 1, 1, 1}, {1, 1, 1, 0, 1}, {0, 0, 0, 0, 1}};
-    static boolean visited[][];
-    static int dx[] = {0, 0, 1, -1};
-    static int dy[] = {-1, 1, 0, 0};
+    static String begin = "hit";
+    static String target = "cog";
+    static String words[] = {"hot", "dot", "dog", "lot", "log", "cog"};
+    static boolean visited[];
+
+    static int value = Integer.MAX_VALUE;
 
     public static void main(String[] args) {
 
-        visited = new boolean[maps.length][maps.length];
+        visited = new boolean[words.length];
 
-        visited[0][0] = true;
-        bfs(0, 0);
+        backTracking(begin, words, 0);
 
-        System.out.println(maps[maps.length - 1][maps.length - 1]);
+        if (value == Integer.MAX_VALUE) {
+            System.out.println(0);
+        } else {
+            System.out.println(value);
+        }
 
     }
 
-    static void bfs(int startX, int startY) {
+    static void backTracking(String begin, String[] words, int depth) {
 
-        Queue<Move> q = new LinkedList<>();
-        q.add(new Move(startX, startY));
+        // 1. 종료조건.
+        // 같은 단어라면 Back (Return)
+        if (begin.equals(target)) {
+            value = Math.min(value, depth);
+            return;
+        }
 
-        while (!q.isEmpty()) {
-
-            Move now = q.poll();
-            int nowX = now.x;
-            int nowY = now.y;
-
-            for (int i = 0 ; i < 4 ; i++) {
-                int nextX = nowX + dx[i];
-                int nextY = nowY + dy[i];
-
-                if (nextX < 0 || nextX >= maps.length || nextY < 0 || nextY >= maps.length) {
-                    continue;
-                }
-
-                if (visited[nextX][nextY] == false && maps[nextX][nextY] == 1) {
-                    q.add(new Move(nextX, nextY));
-                    maps[nextX][nextY] = maps[nowX][nowY] + 1;
-                    visited[nextX][nextY] = true;
-                }
-
+        // 2. 순환
+        for (int i = 0; i < words.length; i++) {
+            if (visited[i] == false && check(begin, words[i])) {
+                visited[i] = true;
+                backTracking(words[i], words, depth + 1);
+                visited[i] = false;
             }
-
         }
 
     }
 
-    static class Move {
-        int x = 0;
-        int y = 0;
 
-        Move(int x, int y) {
-            this.x =x;
-            this.y = y;
+    static boolean check(String begin, String target) {
+
+        int count = 0;
+
+        for (int i = 0 ; i < target.length() ; i++) {
+            if (begin.charAt(i) == target.charAt(i)) {
+                count++;
+            }
         }
+
+        if (count == begin.length() - 1) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
 }

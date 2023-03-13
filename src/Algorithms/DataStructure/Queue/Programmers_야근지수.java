@@ -35,6 +35,7 @@ public class Programmers_야근지수 {
             temp = pq.poll();
             answer += Math.pow(temp, 2);
         }
+
         System.out.println(answer);
 
     }
