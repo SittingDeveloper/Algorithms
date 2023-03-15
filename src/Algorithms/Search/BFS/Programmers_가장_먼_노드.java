@@ -7,7 +7,7 @@ import java.util.Queue;
 
 // 프로그래머스 문제, Depth 를 구해야 하는 문제였음
 // https://school.programmers.co.kr/learn/courses/30/lessons/49189
-public class 가장_먼_노드 {
+public class Programmers_가장_먼_노드 {
 
     static ArrayList<Integer> Graph[];
     static boolean Visited[];
