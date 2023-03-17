@@ -29,11 +29,13 @@ public class Programmers_파괴되지_않은_건물 {
         sum = new int[N + 1][M + 1];
 
         // skill(type, r1 ,c1 ,r2 ,c2 ,degree)
+        // sum 을 2가지 방향(상하, 좌우)에 대해 합산(현재값 + 이전값), 전체적인 합산 결과를 갱신
         for (int[] s : skill) {
             int y1 = s[1], x1 = s[2];
             int y2 = s[3], x2 = s[4];
             int degree = s[5] * (s[0] == 1 ? -1 : 1);
 
+            // r1, c1, r2, c2에 대한 4개의 위치에 값을 갱신
             sum[y1][x1] += degree;
             sum[y1][x2 + 1] += (degree * -1);
             sum[y2 + 1][x1] += (degree * -1);

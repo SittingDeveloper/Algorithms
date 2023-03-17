@@ -24,11 +24,12 @@ public class Programmers_기사단원의_무기 {
 
             int count = 0;
 
-            // for (int j = 1 ; j < i ; j++) {
-            //     if (i % j == 0) {
-            //         count++;
-            //     }
-            // }
+            // 시간초과
+            /* for (int j = 1 ; j < i ; j++) {
+                 if (i % j == 0) {
+                     count++;
+                 }
+             }*/
 
             // 약수를 비약적으로 빠르게 구할 수 있는 알고리즘
             for (int j = 1; j * j <= i; j++) {
@@ -38,7 +39,6 @@ public class Programmers_기사단원의_무기 {
                     count += 2;
                 }
             }
-
 
             if (count > limit) {
                 common[i] = power;
