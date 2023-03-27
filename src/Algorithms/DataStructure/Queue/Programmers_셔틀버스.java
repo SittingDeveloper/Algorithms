@@ -49,8 +49,14 @@ public class Programmers_셔틀버스 {
             onBus = 0;
 
             // 현재 운행하는 버스
+            // pq가 비어있지 않다면
             while (!pq.isEmpty()) {
+
+                // 현재시간을 pq 에 있는 값 중 가장 작은 값으로 초기화
                 int currentTime = pq.peek();
+
+                // pq에 출발 시간보다 먼저 도착한 사람이 있고 버스의 정원이 아직 다 차지 않았다면 pq.poll(), 탑승자++,
+                // 내가 도착해야하는 시간을 현재시간 - 1 초기화 ( 막차를 타야하니까 )
                 if (currentTime <= startTime && onBus < m) {
                     pq.poll();
                     onBus++;
@@ -59,9 +65,13 @@ public class Programmers_셔틀버스 {
                     break;
                 }
             }
+
+            // 출발 시간을 간격만큼 +=
             startTime += t;
+
         }
 
+        // 예외처리, 탑승인원이 정원보다 작을 때 막차 = 시작시간 - 간격
         if (onBus < m) {
             lastTime = startTime - t;
         }

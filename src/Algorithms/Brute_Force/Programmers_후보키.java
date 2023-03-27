@@ -36,7 +36,9 @@ public class Programmers_후보키 {
 
         // 조합이 1 ~ n개를 반복해서 조합
         for (int i = 1 ; i <= length ; i++) {
-            comb(0, i, relation);
+            comb(0, i);
+
+            // 조합을 마친 뒤 유일성, 최소성을 따짐
             unique(relation);
             list.clear();
         }
@@ -46,7 +48,9 @@ public class Programmers_후보키 {
     }
 
     // 백트래킹 부분
-    static public void comb (int start, int r, String relation[][]) {
+    static public void comb (int start, int r) {
+
+        // 조합 탈출 조건 r == 0
         if ( r == 0 ) {
             String temp = "";
             for (int i = 0 ; i < length ; i++) {
@@ -60,7 +64,7 @@ public class Programmers_후보키 {
         for (int i = start ; i < length ; i++) {
             if (!visited[i]) {
                 visited[i] = true;
-                comb(start + 1, r - 1, relation);
+                comb(start + 1, r - 1);
                 visited[i] = false;
             }
         }
