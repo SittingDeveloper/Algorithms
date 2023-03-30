@@ -1,11 +1,6 @@
-package Practice;
+package Algorithms.DP.LIS;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.*;
-
-public class Main {
+public class 최대_연속_부분수열의_합 {
 
     public static void main(String[] args) {
 
