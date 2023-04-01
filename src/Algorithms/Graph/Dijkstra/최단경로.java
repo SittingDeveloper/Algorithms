@@ -77,7 +77,7 @@ public class 최단경로 {
             Visited[curr_vertex] = true;
 
             // 현재 노드와 연결된 인접 리스트 노드를 최소 거리로 업데이트
-            for (int i = 0; i < Graph[curr_vertex].size(); i++) {
+            for (int i  = 0; i < Graph[curr_vertex].size(); i++) {
                 Node tmp = Graph[curr_vertex].get(i);
                 int next = tmp.Vertex;
                 int cost = tmp.Cost;

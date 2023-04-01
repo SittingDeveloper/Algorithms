@@ -1,8 +1,12 @@
-package Practice;
+package Algorithms.Greedy;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
-public class Main {
+// 1931
+public class 회의실_배정 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -22,7 +26,7 @@ public class Main {
         int count = 0;
         int prevEndTime = 0;
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0 ; i < n ; i++) {
             int curStart = meetings.get(i).start;
             int curEnd = meetings.get(i).end;
 
