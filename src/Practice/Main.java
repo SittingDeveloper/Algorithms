@@ -1,60 +1,134 @@
 package Practice;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
+
+/*
+n : 4
+m : 6
+k : 9
+u[] = { 1,2,3,1,1,2 }
+v[] = { 2,3,4,4,3,4 }
+I[] = { 3,3,3,3,1,2}
+* */
+
 
 public class Main {
 
+    static int n, m, k;
+    static int u[];
+    static int v[];
+    static int I[];
+
+    static int parent[];
+    static ArrayList<Edge> edges;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt(); // 회의의 수 입력
-        List<Meeting> meetings = new ArrayList<>(); // 회의 정보를 담을 리스트 생성
 
-        for (int i = 0; i < n; i++) {
+        n = 4;
+        m = 6;
+        k = 9;
 
-            int start = scanner.nextInt();
-            int end = scanner.nextInt();
+        u = new int[]{1,2,3,1,1,2};
+        v = new int[]{2,3,4,4,3,4};
+        I = new int[]{3,3,3,3,1,2};
 
-            meetings.add(new Meeting(start, end));
+        edges = new ArrayList<>();
+
+        for (int i = 0 ; i < m ; i++) {
+            int start = u[i];
+            int end = v[i];
+            int weight = I[i];
+
+            edges.add(new Edge(start, end, weight));
         }
 
-        Collections.sort(meetings); // 회의 시간을 종료 시간을 기준으로 오름차순 정렬
+        System.out.println(binarySearch());
 
-        int count = 0;
-        int prevEndTime = 0;
+    }
 
-        for (int i = 0; i < n; i++) {
-            int curStart = meetings.get(i).start;
-            int curEnd = meetings.get(i).end;
-
-            if (prevEndTime <= curStart) {
-                prevEndTime = curEnd;
-                count++;
+    public static int binarySearch() {
+        int left = 0;
+        int right = 10000000;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (check(mid)) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
             }
-
         }
-
-        System.out.println(count);
-
-    }
-}
-
-class Meeting implements Comparable<Meeting> {
-    int start; // 시작 시간
-    int end; // 끝나는 시간
-
-    public Meeting(int start, int end) {
-        this.start = start;
-        this.end = end;
+        return right;
     }
 
-    @Override
-    public int compareTo(Meeting o) { // 시작 시간을 기준으로 정렬하기 위한 compareTo 메소드 구현
-
-        if (this.end == o.end) {
-            return this.start - o.start;
+    public static boolean check(int mid) {
+        parent = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            parent[i] = i;
+        }
+        PriorityQueue<Edge> pq = new PriorityQueue<>();
+        for (Edge edge : edges) {
+            if (edge.weight >= mid) {
+                pq.offer(edge);
+            }
         }
 
-        return this.end - o.end;
+        ArrayList<Integer> selectedEdges = new ArrayList<>();
+
+        while (!pq.isEmpty()) {
+            Edge edge = pq.poll();
+            if (find(edge.u) != find(edge.v)) {
+                union(edge.u, edge.v);
+                selectedEdges.add(edge.weight);
+            }
+        }
+
+        for (int i=2; i<=n; i++) {
+            if (find(i) != find(1)) return false;
+        }
+
+        Collections.sort(selectedEdges);
+
+        int sum = 0;
+
+        for (int i=0; i<selectedEdges.size(); i++) {
+            sum += selectedEdges.get(i);
+
+            if (i == n-2) break;
+        }
+
+        return sum <= k;
+    }
+
+    public static void union(int a, int b) {
+        a = find(a);
+        b = find(b);
+        if (a < b) parent[b] = a;
+        else parent[a] = b;
+    }
+
+    public static int find(int x) {
+        if (x == parent[x]) return x;
+        return parent[x] = find(parent[x]);
+    }
+
+    static class Edge implements Comparable<Edge> {
+        int u;
+        int v;
+        int weight;
+
+        public Edge(int u, int v, int weight) {
+            this.u = u;
+            this.v = v;
+            this.weight = weight;
+        }
+
+        @Override
+        public int compareTo(Edge o) {
+            return this.weight - o.weight;
+        }
     }
 
 }
