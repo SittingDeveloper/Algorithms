@@ -12,6 +12,8 @@ public class Programmers_비밀지도 {
             System.out.println(temp);
         }
 
+
+
     }
 
     public static String[] solution(int n, int[] arr1, int[] arr2) {
