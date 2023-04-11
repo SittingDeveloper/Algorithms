@@ -1,11 +1,25 @@
-package Practice;
+package Algorithms.Another;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
 
-public class Main {
+// 7682
+
+/*
+
+XXXOO.XXX
+XOXOXOXOX
+OXOXOXOXO
+XXOOOXXOX
+XO.OX...X
+.XXX.XOOO
+X.OO..X..
+OOXXXOOXO
+end
+
+* */
+public class 틱택토 {
 
     static char map[][];
 
