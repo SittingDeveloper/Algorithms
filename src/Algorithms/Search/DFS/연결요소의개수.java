@@ -8,55 +8,55 @@ import java.util.StringTokenizer;
 // 11724
 public class 연결요소의개수 {
 
-    static int MAX_N = 10000;
-    static int N, M;
-    static int Graph[][] = new int[MAX_N][MAX_N];
-    static boolean Visited[] = new boolean[MAX_N];
+    static boolean Visited[];
+    static int Graph[][];
 
-    static int count = 0;
+    static int N;
+    static int M;
 
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        N = Integer.parseInt(st.nextToken());
-        M = Integer.parseInt(st.nextToken());
+        N = Integer.parseInt(st.nextToken()); // 정점의 개수
+        M = Integer.parseInt(st.nextToken()); // 간선의 개수
+        Visited = new boolean[N+1];
+        Graph = new int[N+1][N+1];
 
         for (int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
-
             int u = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
 
-            Graph[u][v] = Graph[v][u] = 1;
-
+            Graph[u][v] = 1;
+            Graph[v][u] = 1;
         }
 
+
+        int answer = 0;
         for (int i = 1; i <= N; i++) {
             if (Visited[i] == false) {
+                answer++;
                 dfs(i);
-                System.out.println("");
-                count++;
             }
+
         }
 
-        System.out.println("\n" + count);
+        System.out.println(answer);
 
     }
 
-    public static void dfs(int node) {
+    static void dfs(int index) {
 
-        Visited[node] = true;
-        System.out.print(node + " ");
+        Visited[index] = true;
 
         for (int next = 1; next <= N; next++) {
-
-            if (Visited[next] == false && Graph[node][next] == 1) {
+            if (Visited[next] == false && Graph[index][next] == 1) {
                 dfs(next);
             }
-
         }
+
     }
 
 }

@@ -22,7 +22,7 @@ public class 이항계수_구하기_DFS {
 
     }
 
-    static int DFS(int n, int r) {
+    static private int DFS(int n, int r) {
 
         if (dp[n][r] != 0) {
             return dp[n][r];
