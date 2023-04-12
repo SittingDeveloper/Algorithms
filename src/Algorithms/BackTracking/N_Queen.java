@@ -1,11 +1,7 @@
-package Practice;
+package Algorithms.BackTracking;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.*;
-
-public class Main {
+// 8*8 체스판에서 퀸 8개를 서로 영역을 침범하지 않는 선에서 둘 수 있는 경우의 수는 92회.
+public class N_Queen {
 
     static int N; // 체스판의 크기
     static int[] col; // 퀸이 배치된 열의 위치를 저장하는 배열
