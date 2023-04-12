@@ -30,7 +30,7 @@ public class 동전_구하기 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
-        // 동전의 개수
+        // 동전의 종류
         int N = Integer.parseInt(br.readLine());
 
         // 동전의 value 가 작은 값부터 채워넣어야함
