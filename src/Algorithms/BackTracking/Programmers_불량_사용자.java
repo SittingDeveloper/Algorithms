@@ -55,6 +55,7 @@ public class Programmers_불량_사용자 {
             return false;
         }
 
+        // 길이가 같다면 두 문자열을 처음부터 끝까지 각 자리 비교
         boolean match = true;
         for (int i = 0; i < userId.length(); i++) {
             // '*' 문자가 아니면서 불일치

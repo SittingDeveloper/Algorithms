@@ -7,42 +7,54 @@ import java.util.*;
 
 public class Main {
 
-    static int N; // 체스판의 크기
-    static int[] col; // 퀸이 배치된 열의 위치를 저장하는 배열
-    static int cnt; // 퀸의 개수
-
     public static void main(String[] args) {
-        N = 8; // 8 x 8 체스판
-        col = new int[N + 1];
+        int count = 0;
 
-        dfs(1); // DFS 호출
-        System.out.println(cnt); // 해의 개수 출력
-    }
+        String number = "1234567";
+        String resultString = "";
 
-    // DFS 함수
-    public static void dfs(int row) {
-        if (row > N) { // 모든 행에 퀸을 배치했으면
-            cnt++; // 해의 개수 증가
-            return;
-        }
+        int cursor = 0;
+        int length = 0;
 
-        for (int i = 1; i <= N; i++) { // i번째 열에 퀸을 배치하는 경우를 탐색
-            col[row] = i; // i번째 열에 퀸을 배치
-            if (isPossible(row)) { // 현재 상태가 가능한 상태인지 확인
-                dfs(row + 1); // 다음 행으로 이동
+        while (!number.equals(resultString)) {
+
+            // 1들어옴
+            String partString = number.charAt(cursor) + "";
+            count++;
+
+            if (!partString.equals("0")) {
+//                partString += (number.charAt(0) + 1) - '0';
+
+                // 숫자 + 1
+                int tempNumber = Integer.parseInt(String.valueOf(partString));
+                tempNumber++;
+                partString += tempNumber;
+
+                resultString = resultString.concat(partString);
+                length = resultString.length();
+
+                // 백스페이스
+                if ( length > number.length() || !resultString.equals(number.substring(0, length)) ) {
+                    resultString = resultString.substring(0, resultString.length() - 1);
+                    cursor--;
+                    count++;
+
+                }
+
+                cursor += 2;
+
+            } else { // 0일 경우
+                resultString = resultString.concat("0");
+                cursor++;
             }
-        }
-    }
 
-    // 현재 상태가 가능한 상태인지 확인하는 함수
-    public static boolean isPossible(int row) {
-        for (int i = 1; i < row; i++) {
-            // 같은 열이거나 대각선에 있는 경우
-            if (col[i] == col[row] || Math.abs(col[i] - col[row]) == row - i) {
-                return false;
-            }
+
+
         }
-        return true;
+
+        System.out.println(count);
+
+
     }
 
 }

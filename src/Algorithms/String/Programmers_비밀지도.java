@@ -29,8 +29,8 @@ public class Programmers_비밀지도 {
         */
 
         String formatSpecifer = "%" + n + "s";
-        String BinaryString_1[] = new String[n];
-        String BinaryString_2[] = new String[n];
+        String BinaryString_1[] = new String[n]; // 지도 1
+        String BinaryString_2[] = new String[n]; // 지도 2
 
 
         for (int i = 0 ; i < n ; i++) {
@@ -41,9 +41,9 @@ public class Programmers_비밀지도 {
 
             for (int j = 0 ; j < n ; j++) {
                 if ( BinaryString_1[i].charAt(j) == '1' ||  BinaryString_2[i].charAt(j) == '1' ) {
-                    temp += "#";
+                    temp += "#"; // 둘 중 하나라도 1 이라면 #
                 } else {
-                    temp += " ";
+                    temp += " "; // 모두 공백이라면 " "
                 }
             }
 
