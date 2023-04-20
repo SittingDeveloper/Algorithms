@@ -1,11 +1,6 @@
-package Practice;
+package Algorithms.Search.ParametricSearch;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.*;
-
-public class Main {
+public class Programmers_징검다리_건너기 {
 
     public static void main(String[] args) {
 
@@ -15,20 +10,21 @@ public class Main {
         int left = 1;
         int right = 200000000;
 
-        int max = 0;
-
         while(left <= right){
             int mid = (left + right) / 2;
 
+            // 중간 값으로 건널 수 없다는 뜻, 값 줄여야함
             if(!cross(stones, k, mid)) {
                 right = mid - 1;
-            } else {
+            }
+
+            // 중간 값으로 건널 수 있다는 뜻, 더 높은 값이 있는가 보기 위해 값 늘려야함함
+           else {
                 left = mid + 1;
-                max = Math.max(max, mid);
             }
         }
 
-        System.out.println(left);
+        System.out.println(right);
 
     }
 
