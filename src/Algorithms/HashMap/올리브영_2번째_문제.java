@@ -46,7 +46,7 @@ public class 올리브영_2번째_문제 {
                     united.add(tempCountry);
                 }
             }
-            /*System.out.println("\n" + (i+1) + "번째 날");
+            System.out.println("\n" + (i+1) + "번째 날");
             System.out.print("한국 : ");
             for (String s : korea) {
                 System.out.print(s + " ");
@@ -57,7 +57,7 @@ public class 올리브영_2번째_문제 {
                 System.out.print(s + " ");
             }
 
-            System.out.println();*/
+            System.out.println();
 
             for (int j = 0; j < korea.size(); j++) {
                 for (int k = 0; k < united.size(); k++) {
