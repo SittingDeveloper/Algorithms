@@ -1,11 +1,9 @@
-package Practice;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+package Algorithms.Another;
+import java.io.*;
 import java.util.*;
 
-public class Main {
+// 1206. [S/W 문제해결 기본] 1일차 - View
+public class SW_Expert_조망권_View {
 
     public static void main(String args[]) throws Exception
     {
@@ -29,7 +27,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
-        for(int test_case = 0; test_case < 10; test_case++)
+        for(int test_case = 1; test_case <= 10; test_case++)
         {
 
             int TotalCount = Integer.parseInt(br.readLine());
@@ -62,8 +60,8 @@ public class Main {
 
             }
 
-            sb.append(count+ "\n");
-            System.out.println(count);
+            sb.append("#" + test_case + " " + count+ "\n");
+
         }
 
         System.out.println(sb);

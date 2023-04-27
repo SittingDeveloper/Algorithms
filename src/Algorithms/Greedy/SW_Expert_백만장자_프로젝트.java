@@ -2,6 +2,7 @@ package Algorithms.Greedy;
 
 import java.util.*;
 
+// 1859. 백만 장자 프로젝트
 public class SW_Expert_백만장자_프로젝트 {
 
     public static void main(String args[]) throws Exception
