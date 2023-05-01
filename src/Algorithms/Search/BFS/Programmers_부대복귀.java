@@ -33,6 +33,7 @@ public class Programmers_부대복귀 {
             for (int i = 0 ; i < Graph.length ; i++) {
                 Graph[i] = new ArrayList<>();
             }
+
             Visited = new boolean[n+1];
             depth = new int[n+1];
 
@@ -50,6 +51,7 @@ public class Programmers_부대복귀 {
 
             bfs(destination);
 
+            // 방문하지 않은곳 -1 초기화
             for (int i = 1 ; i < depth.length ; i++) {
                 if (Visited[i] == false) {
                     depth[i] = -1;

@@ -63,12 +63,12 @@ public class Programmers_이모티콘_할인행사 {
 
                 for (int i = 0 ; i < rates.length ; i++) {
 
-                    // 이모티콘 구입 후 구매 총 비용에 더함 100% 할인이 아니라면
+                    // 이모티콘 구입 후 구매 총 비용에 더함
                     if (100 - rates[i] >= rate) {
                         expense += emoticons[i] * rates[i] / 100;
                     }
 
-                    // 총 비용이 목표금액보다 높다면 구매한걸 전부 취소하고 이모티콘 플러스 가입
+                    // 총 비용이 목표금액보다 높다면 구매한걸 전부 취소 (expense = 0)하고 이모티콘 플러스 가입
                     if (expense >= price) {
                         ePlus++;
                         expense = 0;
