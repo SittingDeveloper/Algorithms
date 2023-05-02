@@ -1,11 +1,10 @@
-package Practice;
+package Algorithms.DataStructure.Stack;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
-public class Main {
+public class Programmers_택배상자 {
 
     public static void main(String args[]) throws Exception {
 
@@ -23,12 +22,6 @@ public class Main {
         for (int i = 1; i <= order.length; i++) {
             container.add(i);
         }
-
-        /*for (int i = 0; i < order[0]; i++) {
-            if (container.peek() != order[0]) {
-                subContainer.add(container.poll());
-            }
-        }*/
 
         for (int i = 0; i < order.length; i++) {
 
