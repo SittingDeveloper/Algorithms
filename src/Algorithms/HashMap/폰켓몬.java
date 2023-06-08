@@ -15,13 +15,18 @@ public class 폰켓몬 {
         HashMap<Integer, Integer> maps = new HashMap<>();
 
         // 해쉬맵의 크기 == 포켓몬의 종류
-        for (int i = 0; i < nums.length; i++) {
+        /*for (int i = 0; i < nums.length; i++) {
             int count = 1;
 
             if (maps.containsKey(nums[i])) {
                 count = maps.get(nums[i]) + 1;
             }
 
+            maps.put(nums[i], count);
+        }*/
+
+        for (int i = 0; i < nums.length; i++) {
+            int count = maps.getOrDefault(nums[i], 1);
             maps.put(nums[i], count);
         }
 

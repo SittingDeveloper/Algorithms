@@ -44,6 +44,13 @@ public class 미로탐색 {
         // bfs 탐색 시작
         bfs(0, 0);
 
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                System.out.print(Graph[i][j] + " ");
+            }
+            System.out.println();
+        }
+
         System.out.println(Graph[N-1][M-1]);
     }
 

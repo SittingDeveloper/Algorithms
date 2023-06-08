@@ -7,70 +7,32 @@ import java.util.*;
 
 public class Main {
 
-    public static void main(String args[]) throws Exception {
+    public static void main(String[] args) throws IOException {
 
-        int order[] = {4, 3, 1, 2, 5};
-//        int order[] = {5,4,3,2,1};
-//        int order[] = {2, 1, 4, 3, 6, 5, 8, 7, 10, 9};
-//        int order[] = {2, 1, 6, 7, 5, 8, 4, 9, 3, 10};
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int answer = 0;
+        long a = Long.parseLong(st.nextToken());
+        long b = Long.parseLong(st.nextToken());
 
-        Queue<Integer> container = new LinkedList<>();
-        Stack<Integer> subContainer = new Stack<>();
+        long[] fibonacciNumbers = new long[10000];
 
-        // Queue
-        for (int i = 1; i <= order.length; i++) {
-            container.add(i);
+        fibonacciNumbers[0] = 1;
+        fibonacciNumbers[1] = 1;
+
+        for (int i = 2; i < fibonacciNumbers.length; i++) {
+            fibonacciNumbers[i] = fibonacciNumbers[i - 1] + fibonacciNumbers[i - 2];
         }
 
-        /*for (int i = 0; i < order[0]; i++) {
-            if (container.peek() != order[0]) {
-                subContainer.add(container.poll());
-            }
-        }*/
-
-        for (int i = 0; i < order.length; i++) {
-
-            int target = order[i];
-
-            // 컨테이너에 있을 경우 (Queue)
-            if (container.size() > 0 && target == container.peek()) {
-//                System.out.print(target + " ");
-                answer++;
-                container.poll();
-            }
-
-            // 서브컨테이너에 있을 경우 (Stack)
-            else if (subContainer.size() > 0 && target == subContainer.peek()) {
-//                System.out.print(target + " ");
-                answer++;
-                subContainer.pop();
-            }
-
-            // 모든 컨테이너의 입구에 없을 경우,
-            // 컨테이너의 값을 서브컨테이너에 계속 집어넣으면서 order[i] 와 같은 값을 찾는다.
-            // 끝까지 나오지 않을 경우에는 break
-            else {
-
-                if (!subContainer.isEmpty() && target < subContainer.peek()) {
-                    break;
-                }
-
-                while (!container.isEmpty() && container.peek() != target) {
-                    subContainer.push(container.poll());
-                }
-
-                if (!container.isEmpty() && container.peek() == target) {
-                    answer++;
-                    container.poll();
-                }
-
+        long sum = 0;
+        for (int i = 0; i < fibonacciNumbers.length; i++) {
+            if (fibonacciNumbers[i] >= a && fibonacciNumbers[i] <= b) {
+                sum += fibonacciNumbers[i];
             }
         }
 
-        System.out.println(answer);
-
+        // Print the number of Fibonacci numbers and the sum.
+        System.out.println(sum);
     }
 
 }

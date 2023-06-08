@@ -10,39 +10,35 @@ public class SumOfPart_4 {
 
     public static void main(String[] args) throws IOException {
 
-        // 입력 최소시간을 맞추기 위해 BufferedReader 사용
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        StringBuilder sb = new StringBuilder();
 
-        // StringTokenizer 를 사용하여 입력
-        StringTokenizer stringtokenizer = new StringTokenizer(bufferedReader.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
 
-        // 첫 번째 토큰 삽입
-        int ElementCount = Integer.parseInt(stringtokenizer.nextToken());
-
-        // 두 번째 토큰 삽입
-        int PartSumCount = Integer.parseInt(stringtokenizer.nextToken());
-
-        // stringtokenizer 다시 입력 ( 이전 값은 사라짐 )
-        stringtokenizer = new StringTokenizer(bufferedReader.readLine());
-
-        // 합배열은 indexOfArray 방지를 위해 +1 해줘야함
-        long S[] = new long[ElementCount + 1];
-
-        /* 합배열 저장하는 부분, 공식 : S[i] = S[i-1] + A[i] */
-        // 합 배열 S[] 에 위 stringtokenizer 에서 받은 값으로 넣어줌, i = 1 부터 라는거 주의
-       for (int i = 1; i < S.length; i++) {
-            S[i] = S[i - 1] + Integer.parseInt(stringtokenizer.nextToken());
+        int A[] = new int[N + 1];
+        st = new StringTokenizer(br.readLine());
+        for (int i = 1; i < A.length; i++) {
+            A[i] = Integer.parseInt(st.nextToken());
         }
 
-       /* 구간합, 공식 : S[j] - S[i-1] */
-        for (int q = 0; q < PartSumCount; q++) {
-            stringtokenizer = new StringTokenizer(bufferedReader.readLine());
+        int S[] = new int[N + 1];
+        S[1] = A[1];
 
-            int i = Integer.parseInt(stringtokenizer.nextToken());
-            int j = Integer.parseInt(stringtokenizer.nextToken());
-
-            System.out.println(S[j] - S[i - 1]);
+        for (int i = 2; i < S.length; i++) {
+            S[i] = S[i-1] + A[i];
         }
+
+        for (int i = 0; i < M; i++) {
+            st = new StringTokenizer(br.readLine());
+            int start = Integer.parseInt(st.nextToken());
+            int end = Integer.parseInt(st.nextToken());
+
+            sb.append(S[end] - S[start - 1] + "\n");
+        }
+
+        System.out.println(sb);
 
     }
 

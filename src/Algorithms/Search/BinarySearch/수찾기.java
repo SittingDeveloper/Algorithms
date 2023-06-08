@@ -3,90 +3,66 @@ package Algorithms.Search.BinarySearch;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 // 1920
 public class 수찾기 {
 
-    static int A[];
-    static int tmp[];
+    static int arr[];
 
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        StringTokenizer st;
 
+        // 배열
         int N = Integer.parseInt(br.readLine());
-
-        A = new int[N];
-        tmp = new int[N];
-
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        arr = new int[N];
+        st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
-            A[i] = Integer.parseInt(st.nextToken());
+            arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        mergeSort(0, N - 1);
+        Arrays.sort(arr);
 
+        // 찾을 배열
         int M = Integer.parseInt(br.readLine());
+
         st = new StringTokenizer(br.readLine());
 
-        // 이진탐색
         for (int i = 0; i < M; i++) {
             int target = Integer.parseInt(st.nextToken());
 
-            int startIndex = 0;
-            int endIndex = A.length - 1;
-            boolean find = false;
-
-            while (startIndex <= endIndex) {
-                int midIndex = (startIndex + endIndex) / 2;
-                int midValue = A[midIndex];
-
-                if (midValue > target) {
-                    endIndex = midIndex - 1;
-                } else if (midValue < target) {
-                    startIndex = midIndex + 1;
-                } else {
-                    find = true;
-                    break;
-                }
-            }
-
-            if (find == true) {
-                System.out.println(1);
-            } else
-                System.out.println(0);
+            sb.append(binarySearch(target) + "\n");
 
         }
+        System.out.println(sb);
 
     }
 
-    static void mergeSort(int startPoint, int endPoint) {
+    static int binarySearch(int target) {
 
-        if (startPoint < endPoint) {
+        int left = 0;
+        int right = arr.length - 1; // 인덱스로 탐색하니까 -1 하지 빙신아
 
-            int middlePoint = (startPoint + endPoint) / 2;
-            mergeSort(startPoint, middlePoint);
-            mergeSort(middlePoint + 1, endPoint);
+        while (left <= right) {
 
-            int firstPartition = startPoint;
-            int secondPartition = middlePoint + 1;
-            int idx = startPoint;
+            int mid = (left + right) / 2;
+            int midValue = arr[mid];
 
-            while (firstPartition <= middlePoint || secondPartition <= endPoint) {
-
-                if (secondPartition > endPoint || firstPartition <= middlePoint && A[firstPartition] < A[secondPartition]) {
-                    tmp[idx++] = A[firstPartition++];
-                } else
-                    tmp[idx++] = A[secondPartition++];
-            }
-
-            for (int i = startPoint; i <= endPoint; i++) {
-                A[i] = tmp[i];
+            if (midValue < target) {
+                left = mid + 1;
+            } else if (midValue > target) {
+                right = mid - 1;
+            } else {
+                return 1; // 찾음
             }
 
         }
 
+        return 0; // 못찾음
     }
 
 }
